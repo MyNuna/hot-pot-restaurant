@@ -1,5 +1,5 @@
 <template>
-   <div class='page'></div>
+   <div class='page'>this is foot page</div>
 </template>
 <script>
 

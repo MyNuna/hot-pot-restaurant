@@ -23,7 +23,7 @@ export default {
   methods: {},
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 /* @import url(); 引入css类 */
 .page {
   margin: 0;
