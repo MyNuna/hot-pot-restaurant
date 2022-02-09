@@ -72,7 +72,10 @@ export default {
   padding: 0;
   width: 200px;
   height: 100%;
-  border-left: 1px solid #dedede;
-  border-bottom: 1px solid #dedede;
+  // border-right: 1px solid #dedede;
+  // border-bottom: 1px solid #dedede;
+}
+.el-menu {
+  border-right: 0;
 }
 </style>

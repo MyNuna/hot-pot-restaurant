@@ -1,17 +1,13 @@
 <template>
   <div class="page">
-    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-      <el-menu-item index="0">
-        <h1>
-          <a href>
-            <img class="nav-logo" height="50px" width="50px" src="@/assets/lhfw.jpg" alt="老虎发威" />
-          </a>
-        </h1>
+    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" router="true">
+      <el-menu-item index="/Views/Home">
+        <img class="nav-logo" src="@/assets/lhfw.jpg" alt="老虎发威" />
       </el-menu-item>
-      <el-menu-item index="1">home</el-menu-item>
-      <el-menu-item index="2">person</el-menu-item>
-      <el-menu-item index="3">about</el-menu-item>
-      <el-menu-item index="4">MyLove</el-menu-item>
+      <el-menu-item index="/Views/Home">home</el-menu-item>
+      <el-menu-item index="/Views/Person">person</el-menu-item>
+      <el-menu-item index="/Views/About">about</el-menu-item>
+      <el-menu-item index="/Views/MyLove">MyLove</el-menu-item>
     </el-menu>
     <!-- <div class="line"></div>
     <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleSelect" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
@@ -59,28 +55,31 @@ export default {
   //方法集合
   methods: {
     handleSelect(key, keyPath) {
-      switch (key) {
-        case '1':
-          console.log('home');
-          this.$router.push('/Views/Home');
-          break;
-        case '2':
-          console.log('person');
-          this.$router.push('/Views/Person');
-          break;
-        case '3':
-          console.log('about');
-          this.$router.push('/Views/About');
-          break;
-        case '4':
-          console.log('MyLove');
-          this.$router.push('/Views/MyLove');
-          break;
-        default:
-          break;
-      }
-      // console.log(key);
-      // console.log(keyPath);
+      // switch (key) {
+      //   case '0':
+      //     console.log('logo');
+      //     break;
+      //   case '1':
+      //     console.log('home');
+      //     this.$router.push('/Views/Home');
+      //     break;
+      //   case '2':
+      //     console.log('person');
+      //     this.$router.push('/Views/Person');
+      //     break;
+      //   case '3':
+      //     console.log('about');
+      //     this.$router.push('/Views/About');
+      //     break;
+      //   case '4':
+      //     console.log('MyLove');
+      //     this.$router.push('/Views/MyLove');
+      //     break;
+      //   default:
+      //     break;
+      // }
+      console.log(key);
+      console.log(keyPath);
     }
   },
 }
@@ -91,9 +90,12 @@ export default {
   position: relative;
   top: 0;
   left: 0;
+  height: 80px;
   font-size: 32px;
   line-height: 80px;
 }
 .nav-logo {
+  height: 50px;
+  width: 50px;
 }
 </style>

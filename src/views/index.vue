@@ -9,7 +9,7 @@
     <div class="main">
       <router-view />
     </div>
-    <!-- <div class="foot"><page-foot></page-foot></div> -->
+    <div class="foot"><page-foot></page-foot></div>
   </div>
 </template>
 <script>
@@ -50,22 +50,27 @@ export default {
 .menu {
   position: absolute;
   width: 200px;
-  top: 80px; /* 距离上面50像素 */
+  top: 80px;
   left: 0px;
-  bottom: 0px;
+  bottom: 30px;
   overflow-y: auto; /* 当内容过多时y轴出现滚动条 */
-  // background-color: #545c64;
+  border-right: 1px solid #dedede;
 }
 .main {
   position: absolute;
   top: 80px;
   left: 200px;
-  bottom: 0px;
-  right: 0px; /* 距离右边0像素 */
+  bottom: 30px;
+  right: 0px;
   padding: 10px;
   overflow-y: auto; /* 当内容过多时y轴出现滚动条 */
-  /* background-color: red; */
 }
 .foot {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30px;
+  border-top: 1px solid #dedede;
 }
 </style>
