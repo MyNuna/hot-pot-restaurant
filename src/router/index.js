@@ -1,17 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Views from '../views' // 默认加载index.vue
-import Home from '../views/pages/Home.vue'
-import About from '../views/pages/About.vue'
-import Login from '../views/pages/Login.vue'
-import MyLove from '../views/pages/MyLove.vue'
-import Person from '../views/pages/Person.vue'
+import Home from '../views/home/Home.vue'
+import home1 from '../views/home/home1.vue'
+import About from '../views/about/About.vue'
+import Login from '../views/login/Login.vue'
+import MyLove from '../views/MyLove/MyLove.vue'
+import Person from '../views/person/Person.vue'
 
 Vue.use(VueRouter)
 
 const routes = [{
         path: '/',
-        redirect: '/Views/Home'
+        redirect: '/Views/Home/home1'
     },
     {
         path: '/Views',
@@ -20,6 +21,10 @@ const routes = [{
         children: [{
             path: 'Home',
             component: Home,
+            children: [{
+                path: 'home1',
+                component: home1,
+            }, ]
         }, {
             path: 'About',
             component: About,

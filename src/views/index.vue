@@ -3,13 +3,16 @@
     <div class="header">
       <page-header></page-header>
     </div>
-    <div class="menu">
+    <!-- <div class="menu">
       <page-menu></page-menu>
     </div>
     <div class="main">
       <router-view />
+    </div> -->
+    <router-view/>
+    <div class="foot">
+      <page-foot></page-foot>
     </div>
-    <div class="foot"><page-foot></page-foot></div>
   </div>
 </template>
 <script>
