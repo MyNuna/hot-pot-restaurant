@@ -1,10 +1,17 @@
 <template>
   <div class="page">
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-      <el-menu-item index="1">处理中心</el-menu-item>
-      <el-menu-item index="2">我的工作台</el-menu-item>
-      <el-menu-item index="3">消息中心</el-menu-item>
-      <el-menu-item index="4">订单管理</el-menu-item>
+      <el-menu-item index="0">
+        <h1>
+          <a href>
+            <img class="nav-logo" height="50px" width="50px" src="@/assets/lhfw.jpg" alt="老虎发威" />
+          </a>
+        </h1>
+      </el-menu-item>
+      <el-menu-item index="1">home</el-menu-item>
+      <el-menu-item index="2">person</el-menu-item>
+      <el-menu-item index="3">about</el-menu-item>
+      <el-menu-item index="4">MyLove</el-menu-item>
     </el-menu>
     <!-- <div class="line"></div>
     <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleSelect" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
@@ -25,7 +32,7 @@
       <el-menu-item index="4">
         <a href="https://www.ele.me" target="_blank">订单管理</a>
       </el-menu-item>
-    </el-menu> -->
+    </el-menu>-->
   </div>
 </template>
 <script>
@@ -36,7 +43,7 @@ export default {
   data() {
     //这里存放数据
     return {
-       activeIndex: '1',
+      activeIndex: '1',
     };
   },
   //监听属性 类似于data概念
@@ -51,16 +58,42 @@ export default {
   activated() { },
   //方法集合
   methods: {
-     handleSelect(key, keyPath) {
-        console.log(key, keyPath);
+    handleSelect(key, keyPath) {
+      switch (key) {
+        case '1':
+          console.log('home');
+          this.$router.push('/Views/Home');
+          break;
+        case '2':
+          console.log('person');
+          this.$router.push('/Views/Person');
+          break;
+        case '3':
+          console.log('about');
+          this.$router.push('/Views/About');
+          break;
+        case '4':
+          console.log('MyLove');
+          this.$router.push('/Views/MyLove');
+          break;
+        default:
+          break;
       }
+      // console.log(key);
+      // console.log(keyPath);
+    }
   },
 }
 </script>
-<style scoped>
+<style lang='scss' scoped>
 /* @import url(); 引入css类 */
 .page {
-  margin: 0;
-  padding: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  font-size: 32px;
+  line-height: 80px;
+}
+.nav-logo {
 }
 </style>

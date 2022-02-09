@@ -1,0 +1,71 @@
+<template>
+  <div class="page">
+    <div class="header">
+      <page-header></page-header>
+    </div>
+    <div class="menu">
+      <page-menu></page-menu>
+    </div>
+    <div class="main">
+      <router-view />
+    </div>
+    <!-- <div class="foot"><page-foot></page-foot></div> -->
+  </div>
+</template>
+<script>
+
+export default {
+  //import引入的组件需要注入到对象中才能使用
+  components: {},
+  data() {
+    //这里存放数据
+    return {};
+  },
+  //监听属性 类似于data概念
+  computed: {},
+  //监控data中的数据变化
+  watch: {},
+  //生命周期 - 创建完成（可以访问当前this实例）
+  created() { },
+  //生命周期 - 挂载完成（可以访问DOM元素）
+  mounted() { },
+  //如果页面有keep-alive缓存功能，这个函数会触发
+  activated() { },
+  //方法集合
+  methods: {},
+}
+</script>
+<style lang='scss' scoped>
+/* @import url(); 引入css类 */
+.page {
+}
+.header {
+  position: absolute;
+  line-height: 50px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  // background-color: #2d3a4b;
+}
+.menu {
+  position: absolute;
+  width: 200px;
+  top: 80px; /* 距离上面50像素 */
+  left: 0px;
+  bottom: 0px;
+  overflow-y: auto; /* 当内容过多时y轴出现滚动条 */
+  // background-color: #545c64;
+}
+.main {
+  position: absolute;
+  top: 80px;
+  left: 200px;
+  bottom: 0px;
+  right: 0px; /* 距离右边0像素 */
+  padding: 10px;
+  overflow-y: auto; /* 当内容过多时y轴出现滚动条 */
+  /* background-color: red; */
+}
+.foot {
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-   <div class='page'>this is foot page</div>
+   <div class='page'>this is person page</div>
 </template>
 <script>
 
@@ -26,8 +26,5 @@ methods: {},
 </script>
 <style lang='scss' scoped>
 /* @import url(); 引入css类 */
-.page{
-margin: 0;
-padding: 0;
-}
+.page{}
 </style>
