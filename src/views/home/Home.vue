@@ -1,5 +1,10 @@
 <template>
-  <div class="views">this is home page</div>
+  <div class="views">
+    <div class="title">
+      <h1>Welcome!</h1>
+    </div>
+    <div class="main"></div>
+  </div>
 </template>
 <script>
 
@@ -23,7 +28,9 @@ export default {
   methods: {},
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss" scoped> 
 /* @import url(); 引入css类 */
 .page {}
+.title {}
+.main {}
 </style>

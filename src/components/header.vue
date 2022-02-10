@@ -4,7 +4,7 @@
       <img class="nav-logo" src="@/assets/lhfw.jpg" alt="老虎发威" />
     </div>
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" router>
-      <el-menu-item index="/Views/Home/home1">home</el-menu-item>
+      <el-menu-item index="/Views/Home">home</el-menu-item>
       <el-menu-item index="/Views/Person">person</el-menu-item>
       <el-menu-item index="/Views/Demo/demo1">demo</el-menu-item>
       <el-menu-item index="/Views/About">about</el-menu-item>
@@ -20,7 +20,7 @@ export default {
   data() {
     //这里存放数据
     return {
-      activeIndex: '/Views/Home/home1',
+      activeIndex: '/Views/Home',
     };
   },
   //监听属性 类似于data概念
