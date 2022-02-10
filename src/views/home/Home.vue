@@ -1,12 +1,5 @@
 <template>
-  <div class="page">
-    <div class="menu">
-      <page-menu></page-menu>
-    </div>
-    <div class="main">
-      <router-view />
-    </div>
-  </div>
+  <div class="views">this is home page</div>
 </template>
 <script>
 
@@ -33,22 +26,4 @@ export default {
 <style lang="scss" scoped>
 /* @import url(); 引入css类 */
 .page {}
-.menu {
-  position: absolute;
-  width: 200px;
-  top: 80px;
-  left: 0px;
-  bottom: 30px;
-  overflow-y: auto; /* 当内容过多时y轴出现滚动条 */
-  border-right: 1px solid #dedede;
-}
-.main {
-  position: absolute;
-  top: 80px;
-  left: 200px;
-  bottom: 30px;
-  right: 0px;
-  padding: 10px;
-  overflow-y: auto; /* 当内容过多时y轴出现滚动条 */
-}
 </style>

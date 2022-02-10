@@ -1,5 +1,5 @@
 <template>
-   <div class='page'>this is person page</div>
+   <div class='views'>this is person page</div>
 </template>
 <script>
 

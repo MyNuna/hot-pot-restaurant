@@ -8,8 +8,10 @@
     </div>
     <div class="main">
       <router-view />
-    </div> -->
-    <router-view/>
+    </div>-->
+    <div class="main">
+      <router-view />
+    </div>
     <div class="foot">
       <page-foot></page-foot>
     </div>
@@ -50,22 +52,23 @@ export default {
   right: 0px;
   // background-color: #2d3a4b;
 }
-.menu {
-  position: absolute;
-  width: 200px;
-  top: 80px;
-  left: 0px;
-  bottom: 30px;
-  overflow-y: auto; /* 当内容过多时y轴出现滚动条 */
-  border-right: 1px solid #dedede;
-}
+// .menu {
+//   position: absolute;
+//   width: 200px;
+//   top: 80px;
+//   left: 0px;
+//   bottom: 30px;
+//   overflow-y: auto; /* 当内容过多时y轴出现滚动条 */
+//   border-right: 1px solid #dedede;
+// }
 .main {
   position: absolute;
-  top: 80px;
-  left: 200px;
+  top: 70px;
+  left: 0px;
   bottom: 30px;
   right: 0px;
   padding: 10px;
+  margin: 0 200px;
   overflow-y: auto; /* 当内容过多时y轴出现滚动条 */
 }
 .foot {
@@ -73,7 +76,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 30px;
-  border-top: 1px solid #dedede;
+  height: 25px;
+  // border-top: 1px solid #dedede;
 }
 </style>

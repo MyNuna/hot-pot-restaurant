@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Views from '../views' // 默认加载index.vue
 import Home from '../views/home/Home.vue'
 import home1 from '../views/home/home1.vue'
+import Demo from '../views/demo/Demo.vue'
+import demo1 from '../views/demo/demo1.vue'
 import About from '../views/about/About.vue'
 import Login from '../views/login/Login.vue'
 import MyLove from '../views/MyLove/MyLove.vue'
@@ -24,6 +26,13 @@ const routes = [{
             children: [{
                 path: 'home1',
                 component: home1,
+            }, ]
+        }, {
+            path: 'Demo',
+            component: Demo,
+            children: [{
+                path: 'demo1',
+                component: demo1,
             }, ]
         }, {
             path: 'About',

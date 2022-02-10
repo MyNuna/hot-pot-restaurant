@@ -1,5 +1,12 @@
 <template>
-   <div class='views'>this is MyLove page</div>
+   <div class='page'>
+       <div class="menu">
+      <page-menu></page-menu>
+    </div>
+    <div class="main">
+      <router-view />
+    </div>
+   </div>
 </template>
 <script>
 
@@ -27,4 +34,24 @@ methods: {},
 <style lang='scss' scoped>
 /* @import url(); 引入css类 */
 .page{}
+.menu {
+  position: absolute;
+  width: 200px;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  overflow-y: auto; /* 当内容过多时y轴出现滚动条 */
+  border-right: 1px solid #dedede;
+  background-color: #fff;
+}
+.main {
+  position: absolute;
+  top: 0px;
+  left: 201px;
+  bottom: 0px;
+  right: 0px;
+  padding: 10px;
+  overflow-y: auto; /* 当内容过多时y轴出现滚动条 */
+  background-color: #fff;
+}
 </style>
