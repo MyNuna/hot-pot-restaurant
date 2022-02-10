@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Views from '../views' // 默认加载index.vue
 import Home from '../views/home/Home.vue'
-import home1 from '../views/home/home1.vue'
 import Demo from '../views/demo/Demo.vue'
 import demo1 from '../views/demo/demo1.vue'
 import About from '../views/about/About.vue'
@@ -23,10 +22,6 @@ const routes = [{
         children: [{
             path: 'Home',
             component: Home,
-            children: [{
-                path: 'home1',
-                component: home1,
-            }, ]
         }, {
             path: 'Demo',
             component: Demo,
