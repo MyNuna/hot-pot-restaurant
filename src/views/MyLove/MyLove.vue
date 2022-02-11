@@ -1,5 +1,5 @@
 <template>
-   <div class='views'>this is MyLove page</div>
+   <div class='page'>this is MyLove page</div>
 </template>
 <script>
 

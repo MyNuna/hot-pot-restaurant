@@ -4,9 +4,9 @@
       <el-menu-item index="1">echarts</el-menu-item>
       <el-menu-item index="2">antv</el-menu-item>
       <el-menu-item index="3">vant</el-menu-item>
-      <el-menu-item index="4">Notice(注意)</el-menu-item>
-      <el-menu-item index="5">Navigation(导航)</el-menu-item>
-      <el-menu-item index="6">Others(其他)</el-menu-item>
+      <el-menu-item index="4">element</el-menu-item>
+      <!-- <el-menu-item index="5">Navigation(导航)</el-menu-item>
+      <el-menu-item index="6">Others(其他)</el-menu-item> -->
     </el-menu>
   </div>
 </template>

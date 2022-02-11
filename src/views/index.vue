@@ -68,7 +68,7 @@ export default {
   bottom: 30px;
   right: 0px;
   padding: 10px;
-  margin: 0 200px;
+  margin: 0 10%;
   overflow-y: auto; /* 当内容过多时y轴出现滚动条 */
 }
 .foot {

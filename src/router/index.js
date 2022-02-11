@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Views from '../views' // 默认加载index.vue
 import Home from '../views/home/Home.vue'
 import Demo from '../views/demo/Demo.vue'
-import demo1 from '../views/demo/demo1.vue'
+import charts from '../views/demo/charts.vue'
 import About from '../views/about/About.vue'
 import Login from '../views/login/Login.vue'
 import MyLove from '../views/MyLove/MyLove.vue'
@@ -13,7 +13,7 @@ Vue.use(VueRouter)
 
 const routes = [{
         path: '/',
-        redirect: '/Views/Home'
+        redirect: '/Views/Demo/demo1'
     },
     {
         path: '/Views',
@@ -26,8 +26,8 @@ const routes = [{
             path: 'Demo',
             component: Demo,
             children: [{
-                path: 'demo1',
-                component: demo1,
+                path: 'charts',
+                component: charts,
             }, ]
         }, {
             path: 'About',

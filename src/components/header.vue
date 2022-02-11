@@ -20,7 +20,7 @@ export default {
   data() {
     //这里存放数据
     return {
-      activeIndex: '/Views/Home',
+      activeIndex: '/Views/Demo/demo1',
     };
   },
   //监听属性 类似于data概念

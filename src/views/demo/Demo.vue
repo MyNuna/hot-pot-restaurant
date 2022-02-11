@@ -1,39 +1,41 @@
 <template>
-   <div class='page'>
-       <div class="menu">
+  <div class="page">
+    <div class="menu">
       <page-menu></page-menu>
     </div>
     <div class="main">
       <router-view />
     </div>
-   </div>
+  </div>
 </template>
 <script>
 
 export default {
-//import引入的组件需要注入到对象中才能使用
-components: {},
-data() {
-//这里存放数据
-return {};
-},
-//监听属性 类似于data概念
-computed: {},
-//监控data中的数据变化
-watch: {},
-//生命周期 - 创建完成（可以访问当前this实例）
-created() {},
-//生命周期 - 挂载完成（可以访问DOM元素）
-mounted() {},
-//如果页面有keep-alive缓存功能，这个函数会触发
-activated() {},
-//方法集合
-methods: {},
+  //import引入的组件需要注入到对象中才能使用
+  components: {},
+  data() {
+    //这里存放数据
+    return {};
+  },
+  //监听属性 类似于data概念
+  computed: {},
+  //监控data中的数据变化
+  watch: {},
+  //生命周期 - 创建完成（可以访问当前this实例）
+  created() { },
+  //生命周期 - 挂载完成（可以访问DOM元素）
+  mounted() { },
+  //如果页面有keep-alive缓存功能，这个函数会触发
+  activated() { },
+  //方法集合
+  methods: {},
 }
 </script>
 <style lang='scss' scoped>
 /* @import url(); 引入css类 */
-.page{}
+.page {
+    border-radius: 50px;
+}
 .menu {
   position: absolute;
   width: 200px;
