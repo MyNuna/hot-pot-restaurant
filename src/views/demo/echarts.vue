@@ -1,7 +1,7 @@
 <template>
    <div class='page'>
       <div class="card">
-         <div class="card-echart"></div>
+         <div id="main" class="card-echart"></div>
       </div>
    </div>
 </template>
@@ -29,7 +29,8 @@ activated() {},
 //方法集合
 methods: {
     initEcharts(){
-      var myChart = this.$echarts.init(document.getElementById('main'));
+       var main = document.getElementById("main")
+      var myChart = this.$echarts.init(main);
         // 指定图表的配置项和数据
         var option = {
             title: {
