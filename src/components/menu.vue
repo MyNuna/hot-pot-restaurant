@@ -1,11 +1,12 @@
 <template>
   <div class="page">
-    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="vertical" @select="handleSelect">
-      <el-menu-item index="1">echarts</el-menu-item>
-      <el-menu-item index="2">antv</el-menu-item>
-      <el-menu-item index="3">vant</el-menu-item>
-      <el-menu-item index="4">element</el-menu-item>
-      <!-- <el-menu-item index="5">Navigation(导航)</el-menu-item>
+    <el-menu :default-active="activeIndex" router class="el-menu-demo" mode="vertical" @select="handleSelect">
+      <el-menu-item index="/Views/Demo/echarts">echarts</el-menu-item>
+      <el-menu-item index="/Views/Demo/storeTest">storeTest</el-menu-item>
+      <!-- <el-menu-item index="">antv</el-menu-item>
+      <el-menu-item index="">vant</el-menu-item>
+      <el-menu-item index="">element</el-menu-item>
+      <el-menu-item index="5">Navigation(导航)</el-menu-item>
       <el-menu-item index="6">Others(其他)</el-menu-item> -->
     </el-menu>
   </div>

@@ -7,7 +7,7 @@
       <el-menu-item index="/Views/Home">{{count}}</el-menu-item>
       <el-menu-item index="/Views/Home">home</el-menu-item>
       <el-menu-item index="/Views/Person">person</el-menu-item>
-      <el-menu-item index="/Views/Demo/demo1">demo</el-menu-item>
+      <el-menu-item index="/Views/Demo">demo</el-menu-item>
       <el-menu-item index="/Views/About">about</el-menu-item>
       <el-menu-item index="/Views/MyLove">MyLove</el-menu-item>
     </el-menu>
@@ -41,8 +41,8 @@ export default {
   //方法集合
   methods: {
     handleSelect(key, keyPath) {
-      console.log(key);
-      console.log(keyPath);
+      // console.log(key);
+      // console.log(keyPath);
     }
   },
 }

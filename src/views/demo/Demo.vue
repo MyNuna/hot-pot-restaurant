@@ -33,9 +33,7 @@ export default {
 </script>
 <style lang='scss' scoped>
 /* @import url(); 引入css类 */
-.page {
-    border-radius: 50px;
-}
+.page {}
 .menu {
   position: absolute;
   width: 200px;
@@ -45,6 +43,7 @@ export default {
   overflow-y: auto; /* 当内容过多时y轴出现滚动条 */
   border-right: 1px solid #dedede;
   background-color: #fff;
+  border-radius: 6px;
 }
 .main {
   position: absolute;
@@ -52,8 +51,8 @@ export default {
   left: 201px;
   bottom: 0px;
   right: 0px;
-  padding: 10px;
+  padding: 0 10px;
   overflow-y: auto; /* 当内容过多时y轴出现滚动条 */
-  background-color: #fff;
+//   background-color: #fff;
 }
 </style>
