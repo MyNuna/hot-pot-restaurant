@@ -2,12 +2,13 @@
   <div class="page">
     <el-menu :default-active="activeIndex" router class="el-menu-demo" mode="vertical" @select="handleSelect">
       <el-menu-item index="/Views/Demo/echarts">echarts</el-menu-item>
+      <el-submenu index="/Views/Demo/echarts">
+        <template slot="title"><span>echarts</span></template>
+        <el-menu-item-group>
+          <el-menu-item index="/Views/Demo/echarts/lineEcharts">lineEcharts</el-menu-item>
+        </el-menu-item-group>
+      </el-submenu>
       <el-menu-item index="/Views/Demo/storeTest">storeTest</el-menu-item>
-      <!-- <el-menu-item index="">antv</el-menu-item>
-      <el-menu-item index="">vant</el-menu-item>
-      <el-menu-item index="">element</el-menu-item>
-      <el-menu-item index="5">Navigation(导航)</el-menu-item>
-      <el-menu-item index="6">Others(其他)</el-menu-item> -->
     </el-menu>
   </div>
 </template>

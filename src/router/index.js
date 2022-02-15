@@ -3,7 +3,8 @@ import VueRouter from 'vue-router'
 import Views from '../views' // 默认加载index.vue
 import Home from '../views/home/Home.vue'
 import Demo from '../views/demo/Demo.vue'
-import echarts from '../views/demo/echarts.vue'
+import echarts from '../views/demo/echarts/index.vue'
+import lineEcharts from '../views/demo/echarts/lineEcharts.vue'
 import storeTest from '../views/demo/storeTest.vue'
 import About from '../views/about/About.vue'
 import Login from '../views/login/Login.vue'
@@ -32,6 +33,10 @@ const routes = [{
             }, {
                 path: 'echarts',
                 component: echarts,
+                children: [{
+                    path: 'lineEcharts',
+                    component: lineEcharts,
+                }, ]
             }, ]
         }, {
             path: 'About',
