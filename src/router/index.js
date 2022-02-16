@@ -59,5 +59,23 @@ const router = new VueRouter({
     base: process.env.BASE_URL,
     routes
 })
+router.beforeEach((to, from, next) => {
+    // 返回 false 以取消导航
+    // return false
+    // 获取用户登录标志
+    // let isLogin = 
+    // if (isLogin) {
+    //     next();
+    // } else {
+    //     if (to.path === "/login") {
+    //         next()
+    //     } else {
+    //         next('/login')
+    //     }
+    // }
+    // console.log(to);
+    // console.log(from);
+    next();
+})
 
 export default router

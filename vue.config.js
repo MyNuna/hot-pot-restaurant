@@ -1,3 +1,4 @@
+process.env.APP_PUBLISH = new Date().getTime();
 module.exports = {
     // public: './',
     // outputDir: 'dist',

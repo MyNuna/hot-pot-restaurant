@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <el-menu :default-active="activeIndex" router class="el-menu-demo" mode="vertical" @select="handleSelect">
-      <el-menu-item index="/Views/Demo/echarts">echarts</el-menu-item>
+      <!-- <el-menu-item index="/Views/Demo/echarts">echarts</el-menu-item> -->
       <el-submenu index="/Views/Demo/echarts">
         <template slot="title"><span>echarts</span></template>
         <el-menu-item-group>
@@ -36,13 +36,13 @@ export default {
   //方法集合
   methods: {
     handleSelect(key, keyPath) {
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
     },
     handleOpen(key, keyPath) {
-        console.log(key, keyPath);
+        // console.log(key, keyPath);
     },
     handleClose(key, keyPath) {
-        console.log(key, keyPath);
+        // console.log(key, keyPath);
     },
   },
 }
