@@ -9,6 +9,7 @@
         </el-menu-item-group>
       </el-submenu>
       <el-menu-item index="/Views/Demo/storeTest">storeTest</el-menu-item>
+      <el-menu-item index="/Views/Demo/listTest">listTest</el-menu-item>
     </el-menu>
   </div>
 </template>

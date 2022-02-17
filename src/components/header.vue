@@ -4,7 +4,6 @@
       <img class="nav-logo" src="@/assets/lhfw.jpg" alt="老虎发威" />
     </div>
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" router>
-      <el-menu-item index="/Views/Home">{{count}}</el-menu-item>
       <el-menu-item index="/Views/Home">home</el-menu-item>
       <el-menu-item index="/Views/Person">person</el-menu-item>
       <el-menu-item index="/Views/Demo">demo</el-menu-item>
@@ -25,11 +24,7 @@ export default {
     };
   },
   //监听属性 类似于data概念
-  computed: {
-    count() {
-      return this.$store.state.count;
-    }
-  },
+  computed: {},
   //监控data中的数据变化
   watch: {},
   //生命周期 - 创建完成（可以访问当前this实例）

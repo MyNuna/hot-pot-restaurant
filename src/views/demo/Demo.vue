@@ -48,11 +48,12 @@ export default {
 .main {
   position: absolute;
   top: 0px;
-  left: 201px;
+  left: 211px;
   bottom: 0px;
   right: 0px;
   padding: 0 10px;
   overflow-y: auto; /* 当内容过多时y轴出现滚动条 */
-//   background-color: #fff;
+  // background-color: #fff;
+  // border-radius: 8px;
 }
 </style>

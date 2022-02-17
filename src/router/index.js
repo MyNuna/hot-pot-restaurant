@@ -6,6 +6,7 @@ import Demo from '../views/demo/Demo.vue'
 import echarts from '../views/demo/echarts/index.vue'
 import lineEcharts from '../views/demo/echarts/lineEcharts.vue'
 import storeTest from '../views/demo/storeTest.vue'
+import listTest from '../views/demo/listTest.vue'
 import About from '../views/about/About.vue'
 import Login from '../views/login/Login.vue'
 import MyLove from '../views/MyLove/MyLove.vue'
@@ -31,6 +32,9 @@ const routes = [{
                 path: 'storeTest',
                 component: storeTest,
             }, {
+                path: 'listTest',
+                component: listTest,
+            }, {
                 path: 'echarts',
                 component: echarts,
                 children: [{
@@ -55,10 +59,11 @@ const routes = [{
 ]
 
 const router = new VueRouter({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes
-})
+        mode: 'history',
+        base: process.env.BASE_URL,
+        routes
+    })
+    // 路由守卫，监测每一次路由跳转
 router.beforeEach((to, from, next) => {
     // 返回 false 以取消导航
     // return false
