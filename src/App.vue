@@ -29,7 +29,7 @@ export default {
         model: { jsonPath: '/live2dw/live2d-widget-model-hijiki/assets/hijiki.model.json' },
         display: { position: 'left', width: 150, height: 300 },
         mobile: { show: true },
-        log: false
+        log: false,
       })
     }, 3000)
   },

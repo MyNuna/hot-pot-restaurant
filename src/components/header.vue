@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="nav">
-      <img class="nav-logo" src="@/assets/lhfw.jpg" alt="老虎发威" />
+      <img class="nav-logo" src="../assets/lhfw.jpg"/>
     </div>
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" router>
       <el-menu-item index="/Views/Home">home</el-menu-item>
@@ -13,7 +13,7 @@
   </div>
 </template>
 <script>
-
+// import aa from "../assets/lhfw.jpg"
 export default {
   //import引入的组件需要注入到对象中才能使用
   components: {},

@@ -7,6 +7,7 @@ import echarts from 'echarts'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/components/index'
 import '@/style/index.scss'
+import '@/common/iconfont.js'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)

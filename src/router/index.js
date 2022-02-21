@@ -1,22 +1,24 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Views from '../views' // 默认加载index.vue
-import Home from '../views/home/Home.vue'
-import Demo from '../views/demo/Demo.vue'
-import echarts from '../views/demo/echarts/index.vue'
-import lineEcharts from '../views/demo/echarts/lineEcharts.vue'
-import storeTest from '../views/demo/storeTest.vue'
-import listTest from '../views/demo/listTest.vue'
-import About from '../views/about/About.vue'
-import Login from '../views/login/Login.vue'
-import MyLove from '../views/MyLove/MyLove.vue'
-import Person from '../views/person/Person.vue'
+
+const _import = require('./_import_' + process.env.NODE_ENV);
+const Views = _import('index');
+const Home = _import('home/Home');
+const Demo = _import('demo/Demo');
+const echarts = _import('demo/echarts/index');
+const lineEcharts = _import('demo/echarts/lineEcharts');
+const storeTest = _import('demo/storeTest');
+const listTest = _import('demo/listTest');
+const About = _import('about/About');
+const Login = _import('login/Login');
+const MyLove = _import('MyLove/MyLove');
+const Person = _import('person/Person');
 
 Vue.use(VueRouter)
 
 const routes = [{
         path: '/',
-        redirect: '/Views/Demo/storeTest'
+        redirect: '/Views/Home'
     },
     {
         path: '/Views',
@@ -46,25 +48,25 @@ const routes = [{
             path: 'About',
             component: About,
         }, {
-            path: 'Login',
-            component: Login,
-        }, {
             path: 'MyLove',
             component: MyLove,
         }, {
             path: 'Person',
             component: Person,
+        }, {
+            path: 'Login',
+            component: Login,
         }, ]
     },
 ]
 
 const router = new VueRouter({
-        mode: 'history',
-        base: process.env.BASE_URL,
+        // mode: 'history',
+        // base: process.env.BASE_URL,
         routes
     })
     // 路由守卫，监测每一次路由跳转
-router.beforeEach((to, from, next) => {
+    // router.beforeEach((to, from, next) => {
     // 返回 false 以取消导航
     // return false
     // 获取用户登录标志
@@ -80,7 +82,7 @@ router.beforeEach((to, from, next) => {
     // }
     // console.log(to);
     // console.log(from);
-    next();
-})
+    // next();
+    // })
 
 export default router
