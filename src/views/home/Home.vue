@@ -2,7 +2,8 @@
   <div class="page">
     <div class="page-left">
       <div class="title">
-        <h1>Welcome!</h1>
+        <h1>{{$t('home.helloWorld')}}</h1>
+        <h1>helloWorld</h1>
       </div>
       <div class="main"></div>
     </div>

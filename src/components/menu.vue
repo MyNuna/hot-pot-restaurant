@@ -1,7 +1,6 @@
 <template>
   <div class="page">
     <el-menu :default-active="activeIndex" router class="el-menu-demo" mode="vertical" @select="handleSelect">
-      <!-- <el-menu-item index="/Views/Demo/echarts">echarts</el-menu-item> -->
       <el-submenu index="/Views/Demo/echarts">
         <template slot="title"><span>echarts</span></template>
         <el-menu-item-group>

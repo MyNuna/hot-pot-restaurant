@@ -1,5 +1,6 @@
 <template>
   <div class="page">
+    <span>1179091911@qq.com </span>
     <a href="https://beian.miit.gov.cn">渝ICP备2021007562号-1</a>
   </div>
 </template>
@@ -32,9 +33,10 @@ export default {
   margin: 0;
   padding: 0;
   text-align: center;
+  color: #4f4f4f;
   a {
-   color: #4f4f4f;
    text-decoration: none;
+   color: #4f4f4f;
   }
 }
 </style>

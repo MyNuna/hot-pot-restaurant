@@ -1,7 +1,8 @@
 <template>
   <div class="page">
     <div class="nav">
-      <img class="nav-logo" src="../assets/lhfw.jpg"/>
+      <img class="nav-logo" src="../assets/lhfw.jpg" />
+      <!-- <h1>老虎发威</h1> -->
     </div>
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" router>
       <el-menu-item index="/Views/Home">home</el-menu-item>
@@ -9,11 +10,21 @@
       <el-menu-item index="/Views/Demo">demo</el-menu-item>
       <el-menu-item index="/Views/About">about</el-menu-item>
       <el-menu-item index="/Views/MyLove">MyLove</el-menu-item>
+      <el-menu-item><i class="el-icon-minus el-menu-demo-icon"></i></el-menu-item>
+      <el-menu-item>
+        <el-dropdown @command="handleCommand">
+          <span class="el-dropdown-link"> 中文 <i class="el-icon-arrow-down el-icon--right"></i> </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command='zh'>中文</el-dropdown-item>
+            <el-dropdown-item command='en'>English</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </el-menu-item>
     </el-menu>
   </div>
 </template>
 <script>
-// import aa from "../assets/lhfw.jpg"
+import {getLanguage,setLanguage} from "@/common/cache.js"
 export default {
   //import引入的组件需要注入到对象中才能使用
   components: {},
@@ -30,7 +41,9 @@ export default {
   //生命周期 - 创建完成（可以访问当前this实例）
   created() { },
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() { },
+  mounted() { 
+    console.log(getLanguage());
+   },
   //如果页面有keep-alive缓存功能，这个函数会触发
   activated() { },
   //方法集合
@@ -38,7 +51,11 @@ export default {
     handleSelect(key, keyPath) {
       // console.log(key);
       // console.log(keyPath);
-    }
+    },
+    handleCommand(command){
+      this.$i18n.locale = command
+      console.log(command);
+    },
   },
 }
 </script>
@@ -60,6 +77,17 @@ export default {
   right: 20px;
   height: 60px;
   border: 0;
+  .el-menu-demo-icon {
+  transform:rotate(90deg);
+  color: #dedede;
+}
+}
+.el-dropdown-link {
+  cursor: pointer;
+  color: #409eff;
+}
+.el-icon-arrow-down {
+  font-size: 12px;
 }
 .nav {
   margin-left: 30px;
