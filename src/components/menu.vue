@@ -4,11 +4,10 @@
       <el-submenu index="/Views/Demo/echarts">
         <template slot="title"><span>echarts</span></template>
         <el-menu-item-group>
-          <el-menu-item index="/Views/Demo/echarts/lineEcharts">lineEcharts</el-menu-item>
+          <el-menu-item v-for="(item,index) in echartOption" :key="index" :index="item.path">{{item.echartName}}</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
-      <el-menu-item index="/Views/Demo/storeTest">storeTest</el-menu-item>
-      <el-menu-item index="/Views/Demo/listTest">listTest</el-menu-item>
+      <el-menu-item v-for="(item,index) in menuOption" :key="index" :index="item.path">{{item.menuName}}</el-menu-item>
     </el-menu>
   </div>
 </template>
@@ -20,6 +19,13 @@ export default {
   data() {
     //这里存放数据
     return {
+      echartOption:[
+        {path:'/Views/Demo/echarts/lineEcharts', echartName:'lineEcharts',},
+      ],
+      menuOption:[
+        {path:'/Views/Demo/storeTest',menuName:'storeTest'},
+        {path:'/Views/Demo/listTest',menuName:'listTest'},
+      ],
       activeIndex: '1',
     };
   },

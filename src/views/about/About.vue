@@ -1,5 +1,10 @@
 <template>
-  <div class="page">this is about page</div>
+  <div class="page">
+    <div class="message">
+      <div class="message-title"><h1>说明(legend)</h1></div>
+      <div class="message-about"></div>
+    </div>
+  </div>
 </template>
 <script>
 

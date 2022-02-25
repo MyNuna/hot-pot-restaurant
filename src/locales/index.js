@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import { getLanguage } from '@/common/cache.js'
-import zh from './zh.json'
+import zh from './zh-CN.json'
 import en from './en.json'
 
 Vue.use(VueI18n)

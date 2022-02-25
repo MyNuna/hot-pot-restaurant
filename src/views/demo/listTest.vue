@@ -1,17 +1,14 @@
 <template>
   <div class="page">
     <div class="list">
-      <el-table
-        :data="tableData.slice((currentPage-1)*pageSize,currentPage*pageSize)"
-        style="width: 100%"
-      >
+      <el-table :data="tableData.slice((currentPage-1)*pageSize,currentPage*pageSize)" style="width: 100%">
         <el-table-column prop="date" label="日期" width="180"></el-table-column>
         <el-table-column prop="name" label="姓名" width="180"></el-table-column>
         <el-table-column prop="address" label="地址"></el-table-column>
       </el-table>
       <!-- layout代表组件布局，子组件名用逗号分隔 
-        属性： total代表总条目数 
-        属性： current-page代表总当前页数
+      属性： total代表总条目数 
+      属性： current-page代表总当前页数
       事件： current-change用于监听页数改变，而内容也发生改变-->
       <div class="block">
         <el-pagination
@@ -25,13 +22,13 @@
   </div>
 </template>
 <script>
-
 export default {
   //import引入的组件需要注入到对象中才能使用
   components: {},
   data() {
     //这里存放数据
     return {
+      // 分页控件的功能
       layout: "total,prev, pager, next",
       currentPage: 1,
       pageSize: 5,
@@ -110,7 +107,7 @@ export default {
     },
     handleCurrentChange(val) {
       this.currentPage = val;
-    }
+    },
   },
 }
 </script>

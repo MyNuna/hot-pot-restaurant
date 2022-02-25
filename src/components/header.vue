@@ -15,8 +15,7 @@
         <el-dropdown @command="handleCommand">
           <span class="el-dropdown-link"> 中文 <i class="el-icon-arrow-down el-icon--right"></i> </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item command='zh'>中文</el-dropdown-item>
-            <el-dropdown-item command='en'>English</el-dropdown-item>
+            <el-dropdown-item v-for="item in langOption" :key="item.index" :command="item.value">{{item.language}}</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </el-menu-item>
@@ -32,6 +31,10 @@ export default {
     //这里存放数据
     return {
       activeIndex: '/Views/Demo/storeTest',
+      langOption: [
+        {index:0, language: "中文",value: "zh-CN"},
+        {index:1, language: "English",value: "en"},
+      ],
     };
   },
   //监听属性 类似于data概念
