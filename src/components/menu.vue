@@ -20,7 +20,7 @@ export default {
     //这里存放数据
     return {
       echartOption:[
-        {path:'/Views/Demo/echarts/lineEcharts', echartName:'lineEcharts',},
+        {path:'/Views/Demo/echarts/lineEcharts', echartName:"lineEcharts",},
       ],
       menuOption:[
         {path:'/Views/Demo/storeTest',menuName:'storeTest'},

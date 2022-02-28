@@ -1,3 +1,9 @@
 {
-    "helloWorld": "hello world!"
+  "MyLove": "MyLove",
+  "about": "About",
+  "demo": "Demo",
+  "helloWorld": "hello world!",
+  "home": "Home",
+  "lineEcharts": "lineEcharts",
+  "person": "Person"
 }

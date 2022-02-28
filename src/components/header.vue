@@ -5,11 +5,11 @@
       <!-- <h1>老虎发威</h1> -->
     </div>
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" router>
-      <el-menu-item index="/Views/Home">home</el-menu-item>
-      <el-menu-item index="/Views/Person">person</el-menu-item>
-      <el-menu-item index="/Views/Demo">demo</el-menu-item>
-      <el-menu-item index="/Views/About">about</el-menu-item>
-      <el-menu-item index="/Views/MyLove">MyLove</el-menu-item>
+      <el-menu-item index="/Views/Home"> {{$t('home')}} </el-menu-item>
+      <el-menu-item index="/Views/Person"> {{$t('person')}} </el-menu-item>
+      <el-menu-item index="/Views/Demo">{{$t('demo')}} </el-menu-item>
+      <el-menu-item index="/Views/About">{{$t('about')}}</el-menu-item>
+      <el-menu-item index="/Views/MyLove">{{$t('MyLove')}}</el-menu-item>
       <el-menu-item><i class="el-icon-minus el-menu-demo-icon"></i></el-menu-item>
       <el-menu-item>
         <el-dropdown @command="handleCommand">
