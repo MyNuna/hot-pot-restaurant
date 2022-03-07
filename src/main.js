@@ -11,7 +11,9 @@ import '@/common/iconfont.js'
 import i18n from '@/locales'
 
 Vue.config.productionTip = false
-Vue.use(ElementUI)
+Vue.use(ElementUI, {
+    i18n: (key, value) => i18n.t(key, value)
+})
 Vue.prototype.$echarts = echarts
 
 new Vue({

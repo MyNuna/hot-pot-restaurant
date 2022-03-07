@@ -5,12 +5,7 @@
       <!-- <h1>老虎发威</h1> -->
     </div>
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" router>
-      <el-menu-item index="/Views/Home"> {{$t('home')}} </el-menu-item>
-      <el-menu-item index="/Views/Person"> {{$t('person')}} </el-menu-item>
-      <el-menu-item index="/Views/Demo">{{$t('demo')}} </el-menu-item>
-      <el-menu-item index="/Views/About">{{$t('about')}}</el-menu-item>
-      <el-menu-item index="/Views/MyLove">{{$t('MyLove')}}</el-menu-item>
-      <el-menu-item><i class="el-icon-minus el-menu-demo-icon"></i></el-menu-item>
+      <el-menu-item v-for="(item, index) in menuOption" :key="index" :index="item.path"> {{item.name}} </el-menu-item>
       <el-menu-item>
         <el-dropdown @command="handleCommand">
           <span class="el-dropdown-link"> 中文 <i class="el-icon-arrow-down el-icon--right"></i> </span>
@@ -38,7 +33,18 @@ export default {
     };
   },
   //监听属性 类似于data概念
-  computed: {},
+  computed: {
+    menuOption: function() {
+      let menuOption = [
+        {path: "/Views/Home", name: this.$t('home')},
+        {path: "/Views/Person", name: this.$t('person')},
+        {path: "/Views/Demo", name: this.$t('demo')},
+        {path: "/Views/About", name: this.$t('about')},
+        {path: "/Views/MyLove", name: this.$t('MyLove')},
+      ];
+      return menuOption;
+    },
+  },
   //监控data中的数据变化
   watch: {},
   //生命周期 - 创建完成（可以访问当前this实例）

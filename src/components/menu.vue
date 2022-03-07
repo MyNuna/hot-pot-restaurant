@@ -19,18 +19,23 @@ export default {
   data() {
     //这里存放数据
     return {
-      echartOption:[
-        {path:'/Views/Demo/echarts/lineEcharts', echartName:"lineEcharts",},
-      ],
-      menuOption:[
-        {path:'/Views/Demo/storeTest',menuName:'storeTest'},
-        {path:'/Views/Demo/listTest',menuName:'listTest'},
-      ],
       activeIndex: '1',
     };
   },
   //监听属性 类似于data概念
-  computed: {},
+  computed: {
+    menuOption: function() {
+      return [
+        {path:'/Views/Demo/storeTest',menuName:'storeTest'},
+        {path:'/Views/Demo/listTest',menuName:'listTest'},
+      ]
+    },
+    echartOption: function() {
+      return [
+        {path:'/Views/Demo/echarts/lineEcharts', echartName:this.$t("lineEcharts"),},
+      ]
+    },
+  },
   //监控data中的数据变化
   watch: {},
   //生命周期 - 创建完成（可以访问当前this实例）

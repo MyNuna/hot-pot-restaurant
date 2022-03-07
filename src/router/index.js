@@ -26,35 +26,45 @@ const routes = [{
         component: Views,
         children: [{
             path: 'Home',
+            name: 'Home',
             component: Home,
         }, {
             path: 'Demo',
+            name: 'Dome',
             component: Demo,
             children: [{
                 path: 'storeTest',
+                name: 'storeTest',
                 component: storeTest,
             }, {
                 path: 'listTest',
+                name: 'listTest',
                 component: listTest,
             }, {
                 path: 'echarts',
+                name: 'echarts',
                 component: echarts,
                 children: [{
                     path: 'lineEcharts',
+                    name: 'lineEcharts',
                     component: lineEcharts,
                 }, ]
             }, ]
         }, {
             path: 'About',
+            name: 'About',
             component: About,
         }, {
             path: 'MyLove',
+            name: 'MyLove',
             component: MyLove,
         }, {
             path: 'Person',
+            name: 'Person',
             component: Person,
         }, {
             path: 'Login',
+            name: 'Login',
             component: Login,
         }, ]
     },
