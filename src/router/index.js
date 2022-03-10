@@ -5,7 +5,6 @@ const _import = require('./_import_' + process.env.NODE_ENV);
 const Views = _import('index');
 const Home = _import('home/Home');
 const Demo = _import('demo/Demo');
-const echarts = _import('demo/echarts/index');
 const lineEcharts = _import('demo/echarts/lineEcharts');
 const storeTest = _import('demo/storeTest');
 const listTest = _import('demo/listTest');
@@ -13,6 +12,9 @@ const About = _import('about/About');
 const Login = _import('login/Login');
 const MyLove = _import('MyLove/MyLove');
 const Person = _import('person/Person');
+const Flex = _import('demo/other/flex');
+const CSScenter = _import('demo/other/CSS-center');
+const UpLoad = _import('demo/Upload');
 
 Vue.use(VueRouter)
 
@@ -41,14 +43,21 @@ const routes = [{
                 name: 'listTest',
                 component: listTest,
             }, {
-                path: 'echarts',
-                name: 'echarts',
-                component: echarts,
-                children: [{
-                    path: 'lineEcharts',
-                    name: 'lineEcharts',
-                    component: lineEcharts,
-                }, ]
+                path: 'lineEcharts',
+                name: 'lineEcharts',
+                component: lineEcharts,
+            }, {
+                path: 'Flex',
+                name: 'Flex',
+                component: Flex,
+            }, {
+                path: 'CSS-center',
+                name: 'CSS-center',
+                component: CSScenter,
+            }, {
+                path: 'UpLoad',
+                name: 'UpLoad',
+                component: UpLoad,
             }, ]
         }, {
             path: 'About',

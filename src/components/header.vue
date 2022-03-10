@@ -25,7 +25,7 @@ export default {
   data() {
     //这里存放数据
     return {
-      activeIndex: '/Views/Demo/storeTest',
+      activeIndex: '/Views/Home',
       langOption: [
         {index:0, language: "中文",value: "zh-CN"},
         {index:1, language: "English",value: "en"},
@@ -38,7 +38,7 @@ export default {
       let menuOption = [
         {path: "/Views/Home", name: this.$t('home')},
         {path: "/Views/Person", name: this.$t('person')},
-        {path: "/Views/Demo", name: this.$t('demo')},
+        {path: "/Views/Demo/lineEcharts", name: this.$t('demo')},
         {path: "/Views/About", name: this.$t('about')},
         {path: "/Views/MyLove", name: this.$t('MyLove')},
       ];

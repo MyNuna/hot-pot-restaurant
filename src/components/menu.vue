@@ -19,7 +19,7 @@ export default {
   data() {
     //这里存放数据
     return {
-      activeIndex: '1',
+      activeIndex: '/Views/Demo/lineEcharts',
     };
   },
   //监听属性 类似于data概念
@@ -28,11 +28,15 @@ export default {
       return [
         {path:'/Views/Demo/storeTest',menuName:'storeTest'},
         {path:'/Views/Demo/listTest',menuName:'listTest'},
+        {path:'/Views/Demo/Flex',menuName:'Flex'},
+        {path:'/Views/Demo/CSS-center',menuName:'css实现居中'},
+        {path:'/Views/Demo/UpLoad',menuName:'UpLoad'},
       ]
     },
     echartOption: function() {
       return [
-        {path:'/Views/Demo/echarts/lineEcharts', echartName:this.$t("lineEcharts"),},
+        // {path:'/Views/Demo/echarts/lineEcharts', echartName:this.$t("lineEcharts"),},
+        {path:'/Views/Demo/lineEcharts', echartName:this.$t("lineEcharts"),},
       ]
     },
   },
