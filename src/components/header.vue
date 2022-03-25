@@ -4,8 +4,8 @@
       <img class="nav-logo" src="../assets/lhfw.jpg" />
       <!-- <h1>老虎发威</h1> -->
     </div>
-    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" router>
-      <el-menu-item v-for="(item, index) in menuOption" :key="index" :index="item.path"> {{item.name}} </el-menu-item>
+    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+      <el-menu-item v-for="item in menuList" :key="item.meta.index" :index="item.meta.index" @click="$router.push(`/${item.path}`)">{{$t(item.name)}}</el-menu-item>
       <el-menu-item>
         <el-dropdown @command="handleCommand">
           <span class="el-dropdown-link"> 中文 <i class="el-icon-arrow-down el-icon--right"></i> </span>
@@ -25,6 +25,7 @@ export default {
   data() {
     //这里存放数据
     return {
+      menuList:[],
       activeIndex: '/Views/Home',
       langOption: [
         {index:0, language: "中文",value: "zh-CN"},
@@ -33,30 +34,28 @@ export default {
     };
   },
   //监听属性 类似于data概念
-  computed: {
-    menuOption: function() {
-      let menuOption = [
-        {path: "/Views/Home", name: this.$t('home')},
-        {path: "/Views/Person", name: this.$t('person')},
-        {path: "/Views/Demo/lineEcharts", name: this.$t('demo')},
-        {path: "/Views/About", name: this.$t('about')},
-        {path: "/Views/MyLove", name: this.$t('MyLove')},
-      ];
-      return menuOption;
-    },
-  },
+  computed: {},
   //监控data中的数据变化
   watch: {},
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() { },
+  created() {
+    this.initHeader();
+  },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() { 
-    console.log(getLanguage());
+    // console.log(getLanguage());
    },
   //如果页面有keep-alive缓存功能，这个函数会触发
   activated() { },
   //方法集合
   methods: {
+    initHeader() {
+      let routerList = this.$router.options.routes[1].children;
+      console.log('---routerList---');
+      console.log(routerList);
+      console.log('---routerList---');
+      this.menuList = routerList;
+    },
     handleSelect(key, keyPath) {
       // console.log(key);
       // console.log(keyPath);

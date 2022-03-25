@@ -60,9 +60,9 @@ export default {
     //   background-color: #fff;
     // }
     // 当用户点击父元素的时候
-    &:active{
-      background-color: red;
-    }
+    // &:active{
+    //   background-color: red;
+    // }
   }
 }
 .title {

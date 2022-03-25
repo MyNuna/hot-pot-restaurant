@@ -1,13 +1,9 @@
 <template>
   <div class="page">
-    <el-menu :default-active="activeIndex" router class="el-menu-demo" mode="vertical" @select="handleSelect">
-      <el-submenu index="/Views/Demo/echarts">
-        <template slot="title"><span>echarts</span></template>
-        <el-menu-item-group>
-          <el-menu-item v-for="(item,index) in echartOption" :key="index" :index="item.path">{{item.echartName}}</el-menu-item>
-        </el-menu-item-group>
-      </el-submenu>
-      <el-menu-item v-for="(item,index) in menuOption" :key="index" :index="item.path">{{item.menuName}}</el-menu-item>
+    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="vertical" @select="handleSelect">
+      <div v-for="item in menuList" :key="item.meta.index">
+        <el-menu-item :index="item.meta.index" @click="$router.push(`/Demo/${item.path}`)">{{item.name}}</el-menu-item>
+      </div>
     </el-menu>
   </div>
 </template>
@@ -19,39 +15,30 @@ export default {
   data() {
     //这里存放数据
     return {
+      menuList:[],
       activeIndex: '/Views/Demo/lineEcharts',
     };
   },
   //监听属性 类似于data概念
-  computed: {
-    menuOption: function() {
-      return [
-        {path:'/Views/Demo/storeTest',menuName:'storeTest'},
-        {path:'/Views/Demo/listTest',menuName:'listTest'},
-        {path:'/Views/Demo/Flex',menuName:'Flex'},
-        {path:'/Views/Demo/CSS-center',menuName:'css实现居中'},
-        {path:'/Views/Demo/UpLoad',menuName:'UpLoad'},
-      ]
-    },
-    echartOption: function() {
-      return [
-        // {path:'/Views/Demo/echarts/lineEcharts', echartName:this.$t("lineEcharts"),},
-        {path:'/Views/Demo/lineEcharts', echartName:this.$t("lineEcharts"),},
-      ]
-    },
-  },
+  computed: {},
   //监控data中的数据变化
   watch: {},
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() { },
+  created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() { },
+  mounted() {
+    this.routerInit();
+  },
   //如果页面有keep-alive缓存功能，这个函数会触发
   activated() { },
   //方法集合
   methods: {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
+    },
+    routerInit() {
+      let routerList = this.$router.options.routes[1].children[1].children;
+      this.menuList = routerList;
     },
   },
 }

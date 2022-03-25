@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+const original = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+    return original.call(this, location).catch(err => err)
+}
+Vue.use(VueRouter)
+
 const _import = require('./_import_' + process.env.NODE_ENV);
 const Views = _import('index');
 const Home = _import('home/Home');
@@ -15,69 +21,83 @@ const Person = _import('person/Person');
 const Flex = _import('demo/other/flex');
 const CSScenter = _import('demo/other/CSS-center');
 const UpLoad = _import('demo/Upload');
+const Bevel = _import('demo/bevel');
 
 Vue.use(VueRouter)
 
 const routes = [{
-        path: '/',
-        redirect: '/Views/Home'
-    },
-    {
-        path: '/Views',
-        name: 'Views',
-        component: Views,
+    path: 'Login',
+    name: 'Login',
+    component: Login,
+}, {
+    path: '/',
+    name: 'Views',
+    redirect: '/Home',
+    component: Views,
+    children: [{
+        path: 'Home',
+        name: 'home',
+        component: Home,
+        meta: { index: "1", },
+    }, {
+        path: 'Demo',
+        name: 'demo',
+        component: Demo,
+        meta: { index: "2", },
+        // redirect: '/Demo/storeTest',
         children: [{
-            path: 'Home',
-            name: 'Home',
-            component: Home,
+            path: 'storeTest',
+            name: 'storeTest',
+            component: storeTest,
+            meta: { index: "1", },
         }, {
-            path: 'Demo',
-            name: 'Dome',
-            component: Demo,
-            children: [{
-                path: 'storeTest',
-                name: 'storeTest',
-                component: storeTest,
-            }, {
-                path: 'listTest',
-                name: 'listTest',
-                component: listTest,
-            }, {
-                path: 'lineEcharts',
-                name: 'lineEcharts',
-                component: lineEcharts,
-            }, {
-                path: 'Flex',
-                name: 'Flex',
-                component: Flex,
-            }, {
-                path: 'CSS-center',
-                name: 'CSS-center',
-                component: CSScenter,
-            }, {
-                path: 'UpLoad',
-                name: 'UpLoad',
-                component: UpLoad,
-            }, ]
+            path: 'listTest',
+            name: 'listTest',
+            component: listTest,
+            meta: { index: "2", },
         }, {
-            path: 'About',
-            name: 'About',
-            component: About,
+            path: 'lineEcharts',
+            name: 'lineEcharts',
+            component: lineEcharts,
+            meta: { index: "3", },
         }, {
-            path: 'MyLove',
-            name: 'MyLove',
-            component: MyLove,
+            path: 'Flex',
+            name: 'Flex',
+            component: Flex,
+            meta: { index: "4", },
         }, {
-            path: 'Person',
-            name: 'Person',
-            component: Person,
+            path: 'CSS-center',
+            name: 'CSS-center',
+            component: CSScenter,
+            meta: { index: "5", },
         }, {
-            path: 'Login',
-            name: 'Login',
-            component: Login,
+            path: 'UpLoad',
+            name: 'UpLoad',
+            component: UpLoad,
+            meta: { index: "6", },
+        }, {
+            path: 'bevel',
+            name: 'bevel',
+            component: Bevel,
+            meta: { index: "7", },
         }, ]
-    },
-]
+    }, {
+        path: 'About',
+        name: 'about',
+        component: About,
+        meta: { index: "3", },
+    }, {
+        path: 'MyLove',
+        name: 'MyLove',
+        component: MyLove,
+        meta: { index: "4", },
+    }, {
+        path: 'Person',
+        name: 'person',
+        component: Person,
+        meta: { index: "5", },
+    }, ]
+}, ]
 
 const router = new VueRouter({
         // mode: 'history',
