@@ -26,13 +26,20 @@
                <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;linear-gradient(-135deg, transparent 15px, pink 0) top right,</div> 
                <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;linear-gradient(45deg, transparent 15px, pink 0) bottom left,</div> 
                <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;linear-gradient(-45deg, transparent 15px, pink 0) bottom right;</div> 
+               <div>background-size: 50% 50%;</div> 
+               <div>background-repeat: no-repeat;</div> 
            </div>
        </div>
        <div class="page-card">
            <div class="filleting">内圆角</div>
            <div class="card-right">
                <h3>css</h3>
-               <div></div>
+               <div>background: radial-gradient(circle at top left, transparent 15px, pink 0) top left,</div>
+               <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;radial-gradient(circle at top right, transparent 15px, pink 0) top right,</div> 
+               <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;radial-gradient(circle at bottom right, transparent 15px, pink 0) bottom right,</div> 
+               <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;radial-gradient(circle at bottom left, transparent 15px, pink 0) bottom left;</div> 
+               <div>background-size: 50% 50%;</div> 
+               <div>background-repeat: no-repeat;</div> 
            </div>
        </div>
    </div>
@@ -66,6 +73,12 @@ methods: {},
 .filleting {
     width: 100px;
     height: 100px;
+    background: radial-gradient(circle at top left, transparent 15px, pink 0) top left,
+                radial-gradient(circle at top right, transparent 15px, pink 0) top right,
+                radial-gradient(circle at bottom right, transparent 15px, pink 0) bottom right,
+                radial-gradient(circle at bottom left, transparent 15px, pink 0) bottom left;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
 }
 .top-bottom-left-right {
     width: 100px;
@@ -83,7 +96,7 @@ methods: {},
     background: linear-gradient(45deg, transparent 15px, pink 0) left,
                 linear-gradient(-45deg, transparent 15px, green 0) right;
     background-size: 50% 100%; // 背景大小，前一个参数是宽度，后一个参数是高度
-    // background-repeat: no-repeat; // 防止背景重复加载
+    background-repeat: no-repeat; // 防止背景重复加载
 }
 .left-bottom {
     width: 100px;

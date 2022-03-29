@@ -1,4 +1,5 @@
 # exercise
+This is a personal website that is still under construction
 
 ## Project setup
 ```
