@@ -26,7 +26,7 @@ export default {
     //这里存放数据
     return {
       menuList:[],
-      activeIndex: '/Views/Home',
+      activeIndex: '',
       langOption: [
         {index:0, language: "中文",value: "zh-CN"},
         {index:1, language: "English",value: "en"},
@@ -51,10 +51,14 @@ export default {
   methods: {
     initHeader() {
       let routerList = this.$router.options.routes[1].children;
-      console.log('---routerList---');
-      console.log(routerList);
-      console.log('---routerList---');
+      for (let item of routerList) {
+        if(item.children) {
+          item.path = `${item.path}/${item.children[0].path}`;
+          // console.log(item);
+        }
+      }
       this.menuList = routerList;
+      this.activeIndex = routerList[0].meta.index;
     },
     handleSelect(key, keyPath) {
       // console.log(key);

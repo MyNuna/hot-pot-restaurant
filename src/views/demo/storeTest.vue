@@ -27,10 +27,10 @@ watch: {},
 created() {},
 //生命周期 - 挂载完成（可以访问DOM元素）
 mounted() {
-    console.log(`${this.count}`);
-    console.log(`${JSON.stringify(this.todos)}`);
-    console.log(this.$store.getters.doneTodos);
-    console.log(this.doneTodos);
+    // console.log(`${this.count}`);
+    // console.log(`${JSON.stringify(this.todos)}`);
+    // console.log(this.$store.getters.doneTodos);
+    // console.log(this.doneTodos);
 },
 //如果页面有keep-alive缓存功能，这个函数会触发
 activated() {},

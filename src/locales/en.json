@@ -2,8 +2,10 @@
   "MyLove": "MyLove",
   "about": "About",
   "demo": "Demo",
-  "helloWorld": "hello world!",
+  "hello": "welcome to my personal website",
   "home": "Home",
+  "introduce": "This is a personal website still under construction, with some personal coding experience at work and study, as well as some gadgets built in private.",
   "lineEcharts": "lineEcharts",
-  "person": "Person"
+  "person": "Person",
+  "thanks": "Thanks for checking out my website!"
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="vertical" @select="handleSelect">
+    <el-menu :default-active="activeIndex" mode="vertical" @select="handleSelect">
       <div v-for="item in menuList" :key="item.meta.index">
         <el-menu-item :index="item.meta.index" @click="$router.push(`/Demo/${item.path}`)">{{item.name}}</el-menu-item>
       </div>
@@ -16,7 +16,7 @@ export default {
     //这里存放数据
     return {
       menuList:[],
-      activeIndex: '/Views/Demo/lineEcharts',
+      activeIndex: '',
     };
   },
   //监听属性 类似于data概念
@@ -24,11 +24,11 @@ export default {
   //监控data中的数据变化
   watch: {},
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {},
-  //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {
+  created() {
     this.routerInit();
   },
+  //生命周期 - 挂载完成（可以访问DOM元素）
+  mounted() {},
   //如果页面有keep-alive缓存功能，这个函数会触发
   activated() { },
   //方法集合
@@ -39,6 +39,8 @@ export default {
     routerInit() {
       let routerList = this.$router.options.routes[1].children[1].children;
       this.menuList = routerList;
+      this.activeIndex = routerList[0].meta.index;
+
     },
   },
 }

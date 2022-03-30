@@ -2,8 +2,9 @@
   <div class="page">
     <div class="page-left">
       <div class="title">
-        <h1>{{$t('helloWorld')}}</h1>
-        <h1>helloWorld</h1>
+        <h1 >{{$t('hello')}}</h1>
+        <div>{{$t('introduce')}}</div>
+        <div>{{$t('thanks')}}</div>
       </div>
       <div class="main"></div>
     </div>
