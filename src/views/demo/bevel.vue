@@ -4,6 +4,7 @@
            <div class="left-bottom">左下角</div>
            <div class="card-right">
                <h3>css</h3>
+               <!-- <code>background: linear-gradient(45deg, transparent 15px, pink 0);</code> -->
                <span>background: linear-gradient(45deg, transparent 15px, pink 0);</span>
            </div>
        </div>
@@ -105,13 +106,6 @@ methods: {},
 }
 .page-card {
     display: flex;
-    background: #fff;
-    border-radius: 8px;
-    // width: 100%;
-    min-height: 100px;
-    margin: 0 0 10px 0;
-    padding: 20px;
-    
     .card-right {
         padding: 0 20px;;
     }

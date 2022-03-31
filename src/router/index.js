@@ -11,15 +11,15 @@ const _import = require('./_import_' + process.env.NODE_ENV);
 const Views = _import('index');
 const Home = _import('home/Home');
 const Demo = _import('demo/Demo');
-const lineEcharts = _import('demo/echarts/lineEcharts');
+const lineEcharts = _import('demo/lineEcharts');
 const storeTest = _import('demo/storeTest');
 const listTest = _import('demo/listTest');
 const About = _import('about/About');
 const Login = _import('login/Login');
 const MyLove = _import('MyLove/MyLove');
 const Person = _import('person/Person');
-const Flex = _import('demo/other/flex');
-const CSScenter = _import('demo/other/CSS-center');
+const flexLayout = _import('demo/flexLayout');
+const CSScenter = _import('demo/CSS-center');
 const UpLoad = _import('demo/Upload');
 const Bevel = _import('demo/bevel');
 
@@ -61,9 +61,9 @@ const routes = [{
             component: lineEcharts,
             meta: { index: "3", },
         }, {
-            path: 'Flex',
-            name: 'Flex',
-            component: Flex,
+            path: 'flexLayout',
+            name: 'flexLayout',
+            component: flexLayout,
             meta: { index: "4", },
         }, {
             path: 'CSS-center',

@@ -34,7 +34,7 @@ export default {
   //方法集合
   methods: {
     handleSelect(key, keyPath) {
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
     },
     routerInit() {
       let routerList = this.$router.options.routes[1].children[1].children;

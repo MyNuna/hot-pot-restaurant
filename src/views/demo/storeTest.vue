@@ -1,5 +1,5 @@
 <template>
-   <div class='page'>
+   <div class='page-card'>
        <div>{{this.$store.state.count}}</div>
        <input type="button" value="增加" @click="addfn()">
        <input type="button" value="减少" @click="lessmu()">
@@ -52,5 +52,4 @@ methods: {
 </script>
 <style lang='scss' scoped>
 /* @import url(); 引入css类 */
-.page{}
 </style>
