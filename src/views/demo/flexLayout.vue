@@ -1,5 +1,9 @@
 <template>
-   <div class='page'> this is flex page</div>
+   <div class='page'>
+      <div class="page-card">
+         
+      </div>
+   </div>
 </template>
 <script>
 
