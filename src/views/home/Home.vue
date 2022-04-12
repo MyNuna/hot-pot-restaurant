@@ -24,9 +24,13 @@ export default {
   //监控data中的数据变化
   watch: {},
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() { },
+  created() { 
+    console.log(`Home.vue is created`);
+  },
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() { },
+  mounted() {
+    console.log(`Home.vue is mounted`);
+  },
   //如果页面有keep-alive缓存功能，这个函数会触发
   activated() { },
   //方法集合

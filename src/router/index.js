@@ -32,7 +32,7 @@ const routes = [{
 }, {
     path: '/',
     name: 'Views',
-    redirect: '/Home',
+    redirect: '/Demo/CSS-center',
     component: Views,
     children: [{
         path: 'Home',

@@ -56,4 +56,7 @@ export default {
   // background-color: #fff;
   // border-radius: 8px;
 }
+.main::-webkit-scrollbar {
+  width: 0;
+}
 </style>
