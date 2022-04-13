@@ -22,6 +22,7 @@ const flexLayout = _import('demo/flexLayout');
 const CSScenter = _import('demo/CSS-center');
 const UpLoad = _import('demo/Upload');
 const Bevel = _import('demo/bevel');
+const ArrayAPI = _import('demo/ArrayAPI');
 
 Vue.use(VueRouter)
 
@@ -80,6 +81,11 @@ const routes = [{
             name: 'bevel',
             component: Bevel,
             meta: { index: "7", },
+        }, {
+            path: 'ArrayAPI',
+            name: 'ArrayAPI',
+            component: ArrayAPI,
+            meta: { index: "8", },
         }, ]
     }, {
         path: 'About',
