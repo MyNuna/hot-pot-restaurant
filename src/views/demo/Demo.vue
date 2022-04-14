@@ -41,7 +41,7 @@ export default {
   left: 0px;
   bottom: 0px;
   overflow-y: auto; /* 当内容过多时y轴出现滚动条 */
-  border-right: 1px solid #dedede;
+  // border-right: 1px solid #dedede;
   background-color: #fff;
   border-radius: 6px;
 }

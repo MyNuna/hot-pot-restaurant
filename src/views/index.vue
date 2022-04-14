@@ -26,11 +26,11 @@ export default {
   watch: {},
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {
-    console.log(`views.vue is created`);
+    // console.log(`views.vue is created`);
    },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {
-    console.log(`views.vue is mounted`);
+    // console.log(`views.vue is mounted`);
   },
   //如果页面有keep-alive缓存功能，这个函数会触发
   activated() { },

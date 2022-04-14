@@ -1,9 +1,10 @@
 <template>
    <div class='page'>
-       <div class="page-card">
-           <h1>数组原生方法梳理</h1>
-           <h3>数组判断方法</h3>
-           <div>Array.isArray()</div>
+       <div class="left">
+           <happy-menu></happy-menu>
+       </div>
+       <div class="right">
+           <router-view></router-view>
        </div>
    </div>
 </template>
@@ -33,4 +34,26 @@ methods: {},
 <style lang='scss' scoped>
 /* @import url(); 引入css类 */
 .page{}
+.left {
+    position: absolute;
+    width: 200px;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    background-color: #fff;
+    border-radius: 6px;
+    overflow-y: auto;
+}
+.right{
+    position: absolute;
+    top: 0;
+    left: 211px;
+    bottom: 0;
+    right: 0;
+    padding: 0 10px;
+    overflow-y: auto;
+}
+.right::-webkit-scrollbar{
+    width: 0;
+}
 </style>

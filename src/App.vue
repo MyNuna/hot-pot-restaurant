@@ -19,7 +19,7 @@ export default {
   watch: {},
   //生命周期 - 创建完成（可以访问当前this实例）   
   created() {
-    console.log(`APP.vue is created`);
+    // console.log(`APP.vue is created`);
     setTimeout(() => {
       window.L2Dwidget.init({
         pluginRootPath: 'live2dw/',
@@ -35,7 +35,7 @@ export default {
     }, 3000)
   },
   mounted() {
-    console.log(`APP.vue is mounted`);
+    // console.log(`APP.vue is mounted`);
     // console.log('123');
     // console.log(process.env.APP_PUBLISH);
   },

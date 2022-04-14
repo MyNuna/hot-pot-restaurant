@@ -40,7 +40,6 @@ export default {
       let routerList = this.$router.options.routes[1].children[1].children;
       this.menuList = routerList;
       this.activeIndex = routerList[0].meta.index;
-
     },
   },
 }

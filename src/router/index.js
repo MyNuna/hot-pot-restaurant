@@ -10,14 +10,16 @@ Vue.use(VueRouter)
 const _import = require('./_import_' + process.env.NODE_ENV);
 const Views = _import('index');
 const Home = _import('home/Home');
-const Demo = _import('demo/Demo');
-const lineEcharts = _import('demo/lineEcharts');
-const storeTest = _import('demo/storeTest');
-const listTest = _import('demo/listTest');
 const About = _import('about/About');
 const Login = _import('login/Login');
 const MyLove = _import('MyLove/MyLove');
 const Person = _import('person/Person');
+const Happy = _import('happy/happy');
+const Translate = _import('happy/translate');
+const Demo = _import('demo/Demo');
+const lineEcharts = _import('demo/lineEcharts');
+const storeTest = _import('demo/storeTest');
+const listTest = _import('demo/listTest');
 const flexLayout = _import('demo/flexLayout');
 const CSScenter = _import('demo/CSS-center');
 const UpLoad = _import('demo/Upload');
@@ -33,7 +35,7 @@ const routes = [{
 }, {
     path: '/',
     name: 'Views',
-    redirect: '/Demo/CSS-center',
+    redirect: '/Home',
     component: Views,
     children: [{
         path: 'Home',
@@ -88,20 +90,31 @@ const routes = [{
             meta: { index: "8", },
         }, ]
     }, {
+        path: 'Happy',
+        name: 'happy',
+        component: Happy,
+        meta: { index: "3", },
+        children: [{
+            path: 'Translate',
+            name: 'translate',
+            component: Translate,
+            meta: { index: "1" },
+        }, ],
+    }, {
         path: 'About',
         name: 'about',
         component: About,
-        meta: { index: "3", },
+        meta: { index: "4", },
     }, {
         path: 'MyLove',
         name: 'MyLove',
         component: MyLove,
-        meta: { index: "4", },
+        meta: { index: "5", },
     }, {
         path: 'Person',
         name: 'person',
         component: Person,
-        meta: { index: "5", },
+        meta: { index: "6", },
     }, ]
 }, ]
 
