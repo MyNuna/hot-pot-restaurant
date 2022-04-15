@@ -58,7 +58,6 @@ export default {
       for (let item of plaintext) {
         // console.log(item.charCodeAt());
         let str = item.charCodeAt().toString(2).padStart(16, '0');
-        let str1 = item.charCodeAt().toString(2);
         // console.log(str);
         // console.log(str1);
         for (let index = 0; index < str.length; index += 2) {

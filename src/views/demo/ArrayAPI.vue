@@ -3,7 +3,7 @@
        <div class="page-card">
            <h1>数组原生方法梳理</h1>
            <h3>数组判断方法</h3>
-           <div>Array.isArray()</div>
+           <div>Array.isArray(),用于确定传递的值是否是一个Array</div>
        </div>
    </div>
 </template>
