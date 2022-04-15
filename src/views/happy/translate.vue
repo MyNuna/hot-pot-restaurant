@@ -7,11 +7,12 @@
       </div>
       <div class="buttons">
         <el-button-group>
-          <el-button type="primary" plain @click="encrypt" icon="el-icon-bottom">加密</el-button>
-          <el-button type="primary" plain @click="decrypt">
+          <el-button type="primary" @click="encrypt" icon="el-icon-bottom">加密</el-button>
+          <el-button type="primary" @click="decrypt">
             解密
-            <i class="el-icon-top el-icon--right"></i>
+            <i class="el-icon-top"></i>
           </el-button>
+          <el-button type="primary" @click="clean">清除 <i class="el-icon-delete"></i> </el-button>
         </el-button-group>
       </div>
       <div class="ciphertext">
@@ -47,6 +48,10 @@ export default {
   activated() { },
   //方法集合
   methods: {
+    clean() {
+        this.plaintext = "";
+        this.ciphertext = "";
+    },
     encrypt() {
       let plaintext = this.plaintext;
       let newStr = "";
@@ -125,6 +130,10 @@ export default {
 .plaintext {
 }
 .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
 }
 .ciphertext {
 }
