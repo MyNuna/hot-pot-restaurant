@@ -8,7 +8,10 @@
       <div class="buttons">
         <el-button-group>
           <el-button type="primary" plain @click="encrypt" icon="el-icon-bottom">加密</el-button>
-          <el-button type="primary" plain @click="decrypt">解密<i class="el-icon-top el-icon--right"></i></el-button>
+          <el-button type="primary" plain @click="decrypt">
+            解密
+            <i class="el-icon-top el-icon--right"></i>
+          </el-button>
         </el-button-group>
       </div>
       <div class="ciphertext">
@@ -26,9 +29,10 @@ export default {
   data() {
     //这里存放数据
     return {
-        dict: ["哦","嗷","唔","~"],
-        plaintext: '',
-        ciphertext: '',
+      dict: ["哦", "嗷", "唔", "~"],
+      hex: ["00", "01", "10", "11"],
+      plaintext: '',
+      ciphertext: '',
     };
   },
   //监听属性 类似于data概念
@@ -43,40 +47,74 @@ export default {
   activated() { },
   //方法集合
   methods: {
-      encrypt() {
-          let plaintext = this.plaintext;
-          for (let item of plaintext) {
-            //   console.log(item.charCodeAt());
-              let str = item.charCodeAt().toString(2).padStart(16,'0');
-              let newStr = "";
-            //   console.log(str);
-              for (let index = 0; index < str.length; index+=2) {
-                //   console.log(str[index] + str[index+1]);
-                  let key = str[index] + str[index+1];
-                  switch (key) {
-                      case "00":
-                          newStr+=this.dict[0];
-                          break;
-                      case "01":
-                          newStr+=this.dict[1];
-                          break;
-                      case "10":
-                          newStr+=this.dict[2];
-                          break;
-                      case "11":
-                          newStr+=this.dict[3];
-                          break;
-                      default:
-                          break;
-                  }
-              }
-              console.log(newStr);
+    encrypt() {
+      let plaintext = this.plaintext;
+      let newStr = "";
+      for (let item of plaintext) {
+        // console.log(item.charCodeAt());
+        let str = item.charCodeAt().toString(2).padStart(16, '0');
+        let str1 = item.charCodeAt().toString(2);
+        // console.log(str);
+        // console.log(str1);
+        for (let index = 0; index < str.length; index += 2) {
+          //   console.log(str[index] + str[index+1]);
+          let key = str[index] + str[index + 1];
+          switch (key) {
+            case this.hex[0]:
+              newStr += this.dict[0];
+              break;
+            case this.hex[1]:
+              newStr += this.dict[1];
+              break;
+            case this.hex[2]:
+              newStr += this.dict[2];
+              break;
+            case this.hex[3]:
+              newStr += this.dict[3];
+              break;
+            default:
+              break;
           }
-          this.ciphertext = this.plaintext;
-      },
-      decrypt() {
-          this.plaintext = this.ciphertext;
-      },
+        }
+        // console.log(newStr);
+      }
+      this.ciphertext = newStr;
+    },
+    decrypt() {
+      let ciphertext = this.ciphertext;
+      let sumStr = "";
+      for (let index = 0; index < ciphertext.length; index += 8) {
+        let addStr = "";
+        let newStr = "";
+        for (let i = index; i < index + 8; i++) {
+          addStr += ciphertext[i];
+        };
+        // console.log(addStr);
+        // console.log(`----${index}----`);
+        for (const item of addStr) {
+          //   console.log(item);
+          switch (item) {
+            case this.dict[0]:
+              newStr += this.hex[0]
+              break;
+            case this.dict[1]:
+              newStr += this.hex[1]
+              break;
+            case this.dict[2]:
+              newStr += this.hex[2]
+              break;
+            case this.dict[3]:
+              newStr += this.hex[3]
+              break;
+            default:
+              break;
+          }
+        }
+        // console.log(String.fromCharCode(parseInt(newStr, 2)));
+        sumStr += String.fromCharCode(parseInt(newStr, 2));
+      }
+      this.plaintext = sumStr;
+    },
   },
 }
 </script>

@@ -36,7 +36,7 @@ methods: {
     routerInit() {
         this.menuList = this.$router.options.routes[1].children[2].children;
         this.activeIndex = this.$router.options.routes[1].children[2].children[0].path;
-        console.log(this.activeIndex);
+        // console.log(this.activeIndex);
     },
 },
 }
