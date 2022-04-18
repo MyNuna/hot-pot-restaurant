@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { user } from './modules/user.js'
+import user from './modules/user.js'
 
 Vue.use(Vuex)
 
@@ -13,16 +13,20 @@ export default new Vuex.Store({
             { id: 2, text: '..2..', done: false },
             { id: 3, text: '..3..', done: true },
         ],
+        isPhone: false,
     },
     getters: {
+        getIsPhone: state => { return state.isPhone },
         doneTodos: state => { return state.todos.filter(todos => todos.done) },
         doneTodosCount: (state, getters) => { return getters.doneTodos },
         getTodoById: state => (index) => { return state.todos.find(todo => todo.id === index) },
     },
     mutations: {
+        setIsPhone(state, value) { state.isPhone = value },
         addmu(state) { state.count++; },
         lessmu(state) { state.count-- },
         sum(state, value) { state.count += value },
+
     },
     actions: {
         addmu1(context) { context.commit("addmu") },

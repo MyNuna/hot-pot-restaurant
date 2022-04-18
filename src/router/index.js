@@ -12,8 +12,6 @@ const Views = _import('index');
 const Home = _import('home/Home');
 const About = _import('about/About');
 const Login = _import('login/Login');
-const MyLove = _import('MyLove/MyLove');
-const Person = _import('person/Person');
 const Happy = _import('happy/happy');
 const Translate = _import('happy/translate');
 const Demo = _import('demo/Demo');
@@ -105,16 +103,6 @@ const routes = [{
         name: 'about',
         component: About,
         meta: { index: "4", },
-    }, {
-        path: 'MyLove',
-        name: 'MyLove',
-        component: MyLove,
-        meta: { index: "5", },
-    }, {
-        path: 'Person',
-        name: 'person',
-        component: Person,
-        meta: { index: "6", },
     }, ]
 }, ]
 

@@ -8,9 +8,9 @@
       <el-menu-item v-for="item in menuList" :key="item.meta.index" :index="item.meta.index" @click="$router.push(`/${item.path}`)">{{$t(item.name)}}</el-menu-item>
       <el-menu-item>
         <el-dropdown @command="handleCommand">
-          <span class="el-dropdown-link"> 中文 <i class="el-icon-arrow-down el-icon--right"></i> </span>
+          <span class="el-dropdown-link"> {{defaultLang}} <i class="el-icon-arrow-down el-icon--right"></i> </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item v-for="item in langOption" :key="item.index" :command="item.value">{{item.language}}</el-dropdown-item>
+            <el-dropdown-item v-for="item in langOption" :key="item.index" :command="item.index">{{item.value}}</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </el-menu-item>
@@ -18,6 +18,7 @@
   </div>
 </template>
 <script>
+import {mapGetters} from "vuex"
 export default {
   //import引入的组件需要注入到对象中才能使用
   components: {},
@@ -26,19 +27,24 @@ export default {
     return {
       menuList:[],
       activeIndex: '',
+      defaultLang: '中文',
       langOption: [
-        {index:0, language: "中文",value: "zh-CN"},
-        {index:1, language: "English",value: "en"},
+        {index:0, value: "中文",language: "zh-CN"},
+        {index:1, value: "English",language: "en"},
       ],
     };
   },
   //监听属性 类似于data概念
-  computed: {},
+  computed: {
+    ...mapGetters(["getIsPhone"])
+  },
   //监控data中的数据变化
   watch: {},
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {
     this.initHeader();
+    console.log(this.getIsPhone);
+    console.log(`------`);
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() { 
@@ -63,9 +69,11 @@ export default {
       // console.log(key);
       // console.log(keyPath);
     },
-    handleCommand(command){
-      this.$i18n.locale = command
-      console.log(command);
+    handleCommand(index){
+      // console.log(index);
+      // console.log(`---index---`);
+      this.defaultLang = this.langOption[index].value;
+      this.$i18n.locale = this.langOption[index].language;
     },
   },
 }
