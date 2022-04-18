@@ -36,7 +36,7 @@ methods: {},
 .page{}
 .left {
     position: absolute;
-    width: 150px;
+    width: 200px;
     top: 0px;
     left: 0px;
     bottom: 0px;
