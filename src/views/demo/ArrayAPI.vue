@@ -3,7 +3,8 @@
        <div class="page-card">
            <h1>数组原生方法梳理</h1>
            <h3>数组判断方法</h3>
-           <div>Array.isArray(),用于确定传递的值是否是一个Array</div>
+           <div>Array.isArray(),用于确定传递的值是否是一个Array,返回值为false</div>
+           <code-box code="123"></code-box>
        </div>
    </div>
 </template>
@@ -14,7 +15,9 @@ export default {
 components: {},
 data() {
 //这里存放数据
-return {};
+return {
+    userIsArray: "",
+};
 },
 //监听属性 类似于data概念
 computed: {},
@@ -33,4 +36,15 @@ methods: {},
 <style lang='scss' scoped>
 /* @import url(); 引入css类 */
 .page{}
+.demo-pre {
+    .demo-code {
+        background-color: #fafafa;
+        color: unset;
+    }
+}
+pre {
+    display: block;
+    font-family: monospace;
+    white-space: pre;
+}
 </style>
