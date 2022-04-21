@@ -14,6 +14,7 @@ const About = _import('about/About');
 const Login = _import('login/Login');
 const Happy = _import('happy/happy');
 const Translate = _import('happy/translate');
+const drawCard = _import('happy/drawCard');
 const Demo = _import('demo/Demo');
 const lineEcharts = _import('demo/lineEcharts');
 const storeTest = _import('demo/storeTest');
@@ -23,6 +24,7 @@ const CSScenter = _import('demo/CSS-center');
 const UpLoad = _import('demo/Upload');
 const Bevel = _import('demo/bevel');
 const ArrayAPI = _import('demo/ArrayAPI');
+const swipeView = _import('demo/swipeView');
 
 Vue.use(VueRouter)
 
@@ -86,6 +88,11 @@ const routes = [{
             name: 'ArrayAPI',
             component: ArrayAPI,
             meta: { index: "8", },
+        }, {
+            path: 'swipeView',
+            name: 'swipeView',
+            component: swipeView,
+            meta: { index: "9", },
         }, ]
     }, {
         path: 'Happy',
@@ -97,6 +104,11 @@ const routes = [{
             name: 'translate',
             component: Translate,
             meta: { index: "1" },
+        }, {
+            path: 'drawCard',
+            name: 'drawCard',
+            component: drawCard,
+            meta: { index: "2" },
         }, ],
     }, {
         path: 'About',

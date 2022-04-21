@@ -1,7 +1,7 @@
 <template>
    <div class='page'>
        <div class="left">
-           <happy-menu></happy-menu>
+           <page-menu :menuList="menuList" :activeIndex="activeIndex" :rootDirectory="rootDirectory"></page-menu>
        </div>
        <div class="right">
            <router-view></router-view>
@@ -15,20 +15,33 @@ export default {
 components: {},
 data() {
 //这里存放数据
-return {};
+return {
+    menuList: [],
+    activeIndex: "",
+    rootDirectory: "Happy",
+};
 },
 //监听属性 类似于data概念
 computed: {},
 //监控data中的数据变化
 watch: {},
 //生命周期 - 创建完成（可以访问当前this实例）
-created() {},
+created() {
+    this.routerInit();
+},
 //生命周期 - 挂载完成（可以访问DOM元素）
 mounted() {},
 //如果页面有keep-alive缓存功能，这个函数会触发
 activated() {},
 //方法集合
-methods: {},
+methods: {
+    routerInit() {
+        let routerList = this.$router.options.routes[1].children[2].children;
+        this.menuList = routerList;
+        this.activeIndex = routerList[0].meta.index;
+        console.log(routerList);
+    },
+},
 }
 </script>
 <style lang='scss' scoped>

@@ -2,7 +2,7 @@
   <div class="page">
     <el-menu :default-active="activeIndex" mode="vertical" @select="handleSelect">
       <div v-for="item in menuList" :key="item.meta.index">
-        <el-menu-item :index="item.meta.index" @click="$router.push(`/Demo/${item.path}`)">{{item.name}}</el-menu-item>
+        <el-menu-item :index="item.meta.index" @click="$router.push(`/${rootDirectory}/${item.path}`)">{{item.name}}</el-menu-item>
       </div>
     </el-menu>
   </div>
@@ -11,12 +11,22 @@
 
 export default {
   //import引入的组件需要注入到对象中才能使用
-  components: {},
+  props:{
+    activeIndex: {
+      type: String,
+    },
+    menuList: {
+      type:Array,
+    },
+    rootDirectory: {
+      type: String,
+    },
+  },
   data() {
     //这里存放数据
     return {
-      menuList:[],
-      activeIndex: '',
+      // menuList:[],
+      // activeIndex: '',
     };
   },
   //监听属性 类似于data概念
@@ -25,7 +35,7 @@ export default {
   watch: {},
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {
-    this.routerInit();
+    // this.routerInit();
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {},

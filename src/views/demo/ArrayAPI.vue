@@ -4,7 +4,7 @@
            <h1>数组原生方法梳理</h1>
            <h3>数组判断方法</h3>
            <div>Array.isArray(),用于确定传递的值是否是一个Array,返回值为false</div>
-           <code-box code="123"></code-box>
+           <code-box :code="userIsArray"></code-box>
        </div>
    </div>
 </template>
@@ -16,7 +16,7 @@ components: {},
 data() {
 //这里存放数据
 return {
-    userIsArray: "",
+    userIsArray: "Array.isArray()",
 };
 },
 //监听属性 类似于data概念
