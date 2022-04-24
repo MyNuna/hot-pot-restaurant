@@ -8,7 +8,8 @@
             <el-button type="primary" @click="clickGoodLuck(100)">大抽一百</el-button>
         </div>
         <div>抽奖结果：</div>
-        <el-input type="textarea" :autosize="{minRows: 10}" v-model="drawResult"></el-input>
+        <el-input type="textarea" :autosize="{minRows: 10}" v-model="results"></el-input>
+        <draw-card></draw-card>
 	</div>
 </template>
 <script>
@@ -24,31 +25,31 @@ import {getRandom} from "@/common/util"
 				accNoGoldenCount: 0, 		//不出金次数
 				accNoVioletCount: 0, 		//不出紫次数
 				awardColor: "blue",			//出啥颜色卡
-                drawResult: "",             //储存抽卡结果
+                results: "",                //储存抽卡结果
                 cardList: {
                     card_golden:[
-                        { name: 'golden01' },
-                        { name: 'golden02' },
+                        { name: 'golden01', draw: 0, img: "", },
+                        { name: 'golden02', draw: 0, img: "", },
                     ],
                     card_violet:[
-                        { name: 'violet01' },
-                        { name: 'violet02' },
-                        { name: 'violet03' },
-                        { name: 'violet04' },
-                        { name: 'violet05' },
+                        { name: 'violet01', draw: 0, img: "", },
+                        { name: 'violet02', draw: 0, img: "", },
+                        { name: 'violet03', draw: 0, img: "", },
+                        { name: 'violet04', draw: 0, img: "", },
+                        { name: 'violet05', draw: 0, img: "", },
                     ],
                     card_blue:[
-                        { name: 'blue01' },
-                        { name: 'blue02' },
-                        { name: 'blue03' },
-                        { name: 'blue04' },
-                        { name: 'blue05' },
-                        { name: 'blue06' },
-                        { name: 'blue07' },
-                        { name: 'blue08' },
-                        { name: 'blue09' },
-                        { name: 'blue10' },
-                        { name: 'blue11' },
+                        { name: 'blue01', draw: 0, img: "", },
+                        { name: 'blue02', draw: 0, img: "", },
+                        { name: 'blue03', draw: 0, img: "", },
+                        { name: 'blue04', draw: 0, img: "", },
+                        { name: 'blue05', draw: 0, img: "", },
+                        { name: 'blue06', draw: 0, img: "", },
+                        { name: 'blue07', draw: 0, img: "", },
+                        { name: 'blue08', draw: 0, img: "", },
+                        { name: 'blue09', draw: 0, img: "", },
+                        { name: 'blue10', draw: 0, img: "", },
+                        { name: 'blue11', draw: 0, img: "", },
                     ],
                 }
 			};
@@ -72,9 +73,8 @@ import {getRandom} from "@/common/util"
             // 随机抽金卡
             awardedGolden(arr){
                 let random = getRandom(0,arr.length-1);
-                console.log(random);
-                console.log(arr[random].name);
-                console.log("---awardedGolden---");
+                arr[random].draw++;
+                this.sumResult();
             },
 			// 抽中紫卡，重新初始化
 			initAwardedViolet(){
@@ -86,18 +86,32 @@ import {getRandom} from "@/common/util"
             // 随机抽紫卡
             awardedViolet(arr){
                 let random = getRandom(0,arr.length-1);
-                console.log(random);
-                console.log(arr[random].name);
-                console.log("---awardedViolet---");
+                arr[random].draw++;
+                this.sumResult();
             },
             // 随机抽蓝卡
             awardedBlue(arr){
                 let random = getRandom(0,arr.length-1);
-                console.log(random);
-                console.log(arr[random].name);
-                console.log("---awardedViolet---");
+                arr[random].draw++;
+                this.sumResult();
             },
-			//单抽概率计算
+            // 汇总抽奖结果
+            sumResult(){
+                this.results = "";
+                let list = this.cardList;
+                for (const index in list) {
+                    let arr = list[index]
+                    console.log(arr);
+                    console.log('---arr---');
+                    for (const item of arr) {
+                        if(item.draw !== 0) this.results += `${item.name}：${item.draw}次\n`;
+                    }
+                }
+            },
+			/*
+            * 单抽概率计算
+            * 生成两个随机数，当随机数小于出相应颜色卡的概率时提示出相应的卡，同时记录总抽卡数来设置保底
+            */ 
 			computeProOne(){
 				this.totoalCount++;
                 let randomGolden = (Math.random() * 100).toFixed(2);  // 生成随机数，当随机数小于出金概率时抽到金卡
@@ -165,6 +179,20 @@ import {getRandom} from "@/common/util"
 .btns{
     padding: 10px;
     text-align: center;
+}
+.Results{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .goldenResult{
+        width: 100px;
+    }
+    .violetResult{
+        width: 100px;
+    }
+    .blueResult{
+        width: 100px;
+    }
 }
 </style>
 

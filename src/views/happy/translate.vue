@@ -1,6 +1,12 @@
 <template>
   <div class="page">
     <div class="page-card">
+      <el-tabs v-model="activeName" @tab-click="handleClick">
+        <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
+        <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
+        <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
+        <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+      </el-tabs>
       <div class="plaintext">
         <h3>明文：</h3>
         <el-input type="textarea" :autosize="{minRows:10}" v-model="plaintext" placeholder="请输入明文"></el-input>
@@ -30,6 +36,7 @@ export default {
   data() {
     //这里存放数据
     return {
+      activeName: 'second',
       dict: ["哦", "嗷", "唔", "~"],
       hex: ["00", "01", "10", "11"],
       plaintext: '',
@@ -48,6 +55,9 @@ export default {
   activated() { },
   //方法集合
   methods: {
+    handleClick(tab, event) {
+        console.log(tab, event);
+      },
     clean() {
         this.plaintext = "";
         this.ciphertext = "";
