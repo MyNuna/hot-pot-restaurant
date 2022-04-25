@@ -1,16 +1,29 @@
 <template>
-	<div class="page-card">
+<div class="page">
+    <div class="page-card">
         <!-- <h1 class="title">玄不救非，氪不改命，抽奖有风险，充钱需谨慎</h1> -->
         <div class="subtitle">一块一抽</div>
         <div class="btns">
             <el-button type="primary" @click="clickGoodLuck(1)">小抽一块</el-button>
             <el-button type="primary" @click="clickGoodLuck(10)">中抽十块</el-button>
-            <el-button type="primary" @click="clickGoodLuck(100)">大抽一百</el-button>
+            <!-- <el-button type="primary" @click="clickGoodLuck(100)">大抽一百</el-button> -->
         </div>
         <div>抽奖结果：</div>
         <el-input type="textarea" :autosize="{minRows: 10}" v-model="results"></el-input>
-        <draw-card></draw-card>
+        <!-- <draw-card :name={} @click="computeProOne"></draw-card> -->
 	</div>
+    <div class="draw" v-show="isDraw">
+        <div class="draw-page">
+            <div class="page-card">
+                <draw-card v-for="(item, index) in drawCardList" :key="index" :cardName="item.name"></draw-card>
+            </div>
+            <el-button type="primary" @click="yes">确定</el-button>
+            <el-popconfirm title="确定不要这次抽奖的结果吗？" @confirm="no">
+                <el-button type="danger">取消</el-button>
+            </el-popconfirm>
+        </div>
+    </div>
+</div>
 </template>
 <script>
 import {getRandom} from "@/common/util"
@@ -18,6 +31,7 @@ import {getRandom} from "@/common/util"
 		name: "elect",
 		data() {
 			return {
+                isDraw: false,
 				// 抽卡概率属性
 				probability_golden: 0.6,	//金卡基础概率
                 probability_violet: 5.1,	//紫卡基础概率
@@ -26,6 +40,7 @@ import {getRandom} from "@/common/util"
 				accNoVioletCount: 0, 		//不出紫次数
 				awardColor: "blue",			//出啥颜色卡
                 results: "",                //储存抽卡结果
+                drawCardList: [],           //抽卡结果
                 cardList: {
                     card_golden:[
                         { name: 'golden01', draw: 0, img: "", },
@@ -55,8 +70,16 @@ import {getRandom} from "@/common/util"
 			};
 		},
 		methods: {
+            yes(){
+                this.isDraw = false;
+            },
+            no(){
+                this.isDraw = false;
+            },
 			// 点击抽卡 1次 or 10次
 			clickGoodLuck(times) {
+                this.isDraw = true;
+                this.drawCardList = [];
                 if (times == 1) {
 					this.computeProOne();
                 } else {
@@ -74,6 +97,7 @@ import {getRandom} from "@/common/util"
             awardedGolden(arr){
                 let random = getRandom(0,arr.length-1);
                 arr[random].draw++;
+                this.drawCardList.push(arr[random]);
                 this.sumResult();
             },
 			// 抽中紫卡，重新初始化
@@ -87,12 +111,14 @@ import {getRandom} from "@/common/util"
             awardedViolet(arr){
                 let random = getRandom(0,arr.length-1);
                 arr[random].draw++;
+                this.drawCardList.push(arr[random]);
                 this.sumResult();
             },
             // 随机抽蓝卡
             awardedBlue(arr){
                 let random = getRandom(0,arr.length-1);
                 arr[random].draw++;
+                this.drawCardList.push(arr[random]);
                 this.sumResult();
             },
             // 汇总抽奖结果
@@ -169,6 +195,29 @@ import {getRandom} from "@/common/util"
 	};
 </script>
 <style lang="scss" scoped>
+.draw{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    .draw-page{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: #fff;
+        padding: 10px;
+        .page-card{
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}
 .title{
     text-align: center;
 }

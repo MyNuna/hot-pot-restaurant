@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="box front">
-        <p>正面</p>
+        <p>{{cardName}}</p>
       <div class="frontTest"></div>
     </div>
     <div class="box behind" @click="flip">
@@ -15,6 +15,9 @@
 export default {
   //这里接收父组件传递进来的数据
   props: {
+    cardName: {
+      type: String,
+    },
     frontImg: {
       type: String,
     },
@@ -36,7 +39,12 @@ export default {
   mounted() { },
   //方法集合
   methods: {
+      draw(){
+          this.$emit("click");
+          this.flip();
+      },
       flip(){
+          console.log(`翻面`);
           const front = document.querySelector(".front");
           const behind = document.querySelector(".behind");
           front.style.transform = "rotateY(0deg)";

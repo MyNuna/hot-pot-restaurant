@@ -2,10 +2,9 @@
   <div class="page">
     <div class="page-card">
       <el-tabs v-model="activeName" @tab-click="handleClick">
-        <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
-        <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
-        <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
-        <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+        <el-tab-pane label="1" name="first">咆哮</el-tab-pane>
+        <el-tab-pane label="2" name="second">MD5</el-tab-pane>
+        <el-tab-pane label="3" name="second">base64</el-tab-pane>
       </el-tabs>
       <div class="plaintext">
         <h3>明文：</h3>
