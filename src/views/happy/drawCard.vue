@@ -1,26 +1,37 @@
 <template>
 <div class="page">
     <div class="page-card">
-        <!-- <h1 class="title">玄不救非，氪不改命，抽奖有风险，充钱需谨慎</h1> -->
+        <h1 class="title">玄不救非，氪不改命，抽奖有风险，充钱需谨慎</h1>
         <div class="subtitle">一块一抽</div>
         <div class="btns">
             <el-button type="primary" @click="clickGoodLuck(1)">小抽一块</el-button>
-            <el-button type="primary" @click="clickGoodLuck(10)">中抽十块</el-button>
+            <el-button type="primary" @click="clickGoodLuck(10)">大抽十块</el-button>
             <!-- <el-button type="primary" @click="clickGoodLuck(100)">大抽一百</el-button> -->
         </div>
-        <div>抽奖结果：</div>
+        <div class="titles">
+            <span class="result">抽奖结果：</span>
+            <span class="result">抽奖次数：{{totoalCount}}次</span>
+            <el-button @click="clearCard">清空</el-button>
+        </div>
         <el-input type="textarea" :autosize="{minRows: 10}" v-model="results"></el-input>
         <!-- <draw-card :name={} @click="computeProOne"></draw-card> -->
 	</div>
-    <div class="draw" v-show="isDraw">
+    <div class="draw" v-if="isDraw">
         <div class="draw-page">
-            <div class="page-card">
-                <draw-card v-for="(item, index) in drawCardList" :key="index" :cardName="item.name"></draw-card>
+            <div class="cards">
+                <div class="card"  v-for="(item, index) in drawCardList" :key="index">
+                    <draw-card :cardName="item.name" :frontImg="item.img" :behindImg="item.bc"></draw-card>
+                </div>
+                <!-- <div class="card">
+                    <draw-card cardName="haha" frontImg="#db70db" behindImg="#70db93"></draw-card>
+                </div> -->
             </div>
-            <el-button type="primary" @click="yes">确定</el-button>
-            <el-popconfirm title="确定不要这次抽奖的结果吗？" @confirm="no">
-                <el-button type="danger">取消</el-button>
-            </el-popconfirm>
+            <div class="buttons">
+                <el-button class="button" type="primary" @click="yes">确定</el-button>
+                <el-popconfirm title="确定不要这次抽奖的结果吗？" @confirm="no">
+                    <el-button class="button" slot="reference" type="danger">取消</el-button>
+                </el-popconfirm>
+            </div>
         </div>
     </div>
 </div>
@@ -38,33 +49,32 @@ import {getRandom} from "@/common/util"
 				totoalCount: 0,				//总抽卡次数
 				accNoGoldenCount: 0, 		//不出金次数
 				accNoVioletCount: 0, 		//不出紫次数
-				awardColor: "blue",			//出啥颜色卡
                 results: "",                //储存抽卡结果
                 drawCardList: [],           //抽卡结果
                 cardList: {
                     card_golden:[
-                        { name: 'golden01', draw: 0, img: "", },
-                        { name: 'golden02', draw: 0, img: "", },
+                        { name: 'golden01', draw: 0, img: "yellow", bc:"yellow", },
+                        { name: 'golden02', draw: 0, img: "yellow", bc:"yellow", },
                     ],
                     card_violet:[
-                        { name: 'violet01', draw: 0, img: "", },
-                        { name: 'violet02', draw: 0, img: "", },
-                        { name: 'violet03', draw: 0, img: "", },
-                        { name: 'violet04', draw: 0, img: "", },
-                        { name: 'violet05', draw: 0, img: "", },
+                        { name: 'violet01', draw: 0, img: "#db70db", bc:"#db70db", },
+                        { name: 'violet02', draw: 0, img: "#db70db", bc:"#db70db", },
+                        { name: 'violet03', draw: 0, img: "#db70db", bc:"#db70db", },
+                        { name: 'violet04', draw: 0, img: "#db70db", bc:"#db70db", },
+                        { name: 'violet05', draw: 0, img: "#db70db", bc:"#db70db", },
                     ],
                     card_blue:[
-                        { name: 'blue01', draw: 0, img: "", },
-                        { name: 'blue02', draw: 0, img: "", },
-                        { name: 'blue03', draw: 0, img: "", },
-                        { name: 'blue04', draw: 0, img: "", },
-                        { name: 'blue05', draw: 0, img: "", },
-                        { name: 'blue06', draw: 0, img: "", },
-                        { name: 'blue07', draw: 0, img: "", },
-                        { name: 'blue08', draw: 0, img: "", },
-                        { name: 'blue09', draw: 0, img: "", },
-                        { name: 'blue10', draw: 0, img: "", },
-                        { name: 'blue11', draw: 0, img: "", },
+                        { name: 'blue01', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue02', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue03', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue04', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue05', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue06', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue07', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue08', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue09', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue10', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue11', draw: 0, img: "skyblue", bc:"skyblue", },
                     ],
                 }
 			};
@@ -75,6 +85,41 @@ import {getRandom} from "@/common/util"
             },
             no(){
                 this.isDraw = false;
+            },
+            clearCard(){
+                this.probability_golden = 0.6;	//金卡基础概率
+                this.probability_violet = 5.1;	//紫卡基础概率
+				this.totoalCount = 0;				//总抽卡次数
+				this.accNoGoldenCount = 0; 		//不出金次数
+				this.accNoVioletCount = 0; 		//不出紫次数
+                this.results = "";                //储存抽卡结果
+                this.drawCardList = [];           //抽卡结果
+                this.cardList = {
+                    card_golden:[
+                        { name: 'golden01', draw: 0, img: "yellow", bc:"yellow", },
+                        { name: 'golden02', draw: 0, img: "yellow", bc:"yellow", },
+                    ],
+                    card_violet:[
+                        { name: 'violet01', draw: 0, img: "#db70db", bc:"#db70db", },
+                        { name: 'violet02', draw: 0, img: "#db70db", bc:"#db70db", },
+                        { name: 'violet03', draw: 0, img: "#db70db", bc:"#db70db", },
+                        { name: 'violet04', draw: 0, img: "#db70db", bc:"#db70db", },
+                        { name: 'violet05', draw: 0, img: "#db70db", bc:"#db70db", },
+                    ],
+                    card_blue:[
+                        { name: 'blue01', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue02', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue03', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue04', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue05', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue06', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue07', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue08', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue09', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue10', draw: 0, img: "skyblue", bc:"skyblue", },
+                        { name: 'blue11', draw: 0, img: "skyblue", bc:"skyblue", },
+                    ],
+                };
             },
 			// 点击抽卡 1次 or 10次
 			clickGoodLuck(times) {
@@ -90,7 +135,6 @@ import {getRandom} from "@/common/util"
 			initAwardedGolden(){
 				this.probability_golden = 0.6;
 				this.accNoGoldenCount = 0;
-				this.awardColor = "golden";
                 this.awardedGolden(this.cardList.card_golden);
 			},
             // 随机抽金卡
@@ -104,7 +148,6 @@ import {getRandom} from "@/common/util"
 			initAwardedViolet(){
 				this.probability_violet = 5.1;
 				this.accNoVioletCount = 0;
-				this.awardColor = "violet";
                 this.awardedViolet(this.cardList.card_violet);
 			},
             // 随机抽紫卡
@@ -179,7 +222,6 @@ import {getRandom} from "@/common/util"
 						this.probability_violet = 100;
 					}
 					// 出蓝
-					this.awardColor = "blue";
                     this.awardedBlue(this.cardList.card_blue);
 					// console.log("出蓝：", "紫卡基础概率：" + this.probability_violet, "~" + randomNumViolet+" 抽卡次数：",this.totoalCount);
 				}
@@ -195,6 +237,13 @@ import {getRandom} from "@/common/util"
 	};
 </script>
 <style lang="scss" scoped>
+.titles{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
 .draw{
     position: fixed;
     width: 100%;
@@ -211,10 +260,22 @@ import {getRandom} from "@/common/util"
         left: 50%;
         transform: translate(-50%,-50%);
         background-color: #fff;
-        padding: 10px;
-        .page-card{
+        padding: 50px;
+        .cards{
             display: flex;
-            flex-direction: row;
+            // flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            .card{
+                margin: 0 10px;
+            }
+        }
+        .buttons{
+            text-align: center;
+            margin: 10px 0;
+            .button{
+                margin: 0 10px;
+            }
         }
     }
 }

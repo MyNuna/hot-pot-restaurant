@@ -1,10 +1,10 @@
 <template>
   <div class="main">
-    <div class="box front">
+    <div class="box front" ref="front" :style="{ background:frontImg }" >
         <p>{{cardName}}</p>
       <div class="frontTest"></div>
     </div>
-    <div class="box behind" @click="flip">
+    <div class="box behind" @click="flip" ref="behind" :style="{ background:behindImg }">
         <p>背面</p>
       <div class="behindTest"></div>
     </div>
@@ -21,7 +21,7 @@ export default {
     frontImg: {
       type: String,
     },
-    behind: {
+    behindImg: {
       type: String,
     },
   },
@@ -39,16 +39,10 @@ export default {
   mounted() { },
   //方法集合
   methods: {
-      draw(){
-          this.$emit("click");
-          this.flip();
-      },
       flip(){
           console.log(`翻面`);
-          const front = document.querySelector(".front");
-          const behind = document.querySelector(".behind");
-          front.style.transform = "rotateY(0deg)";
-          behind.style.transform = "rotateY(-180deg)";
+          this.$refs.front.style.transform = "rotateY(0deg)";
+          this.$refs.behind.style.transform = "rotateY(-180deg)";
       },
   },
 }
